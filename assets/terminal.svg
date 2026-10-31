@@ -8,18 +8,18 @@
   <text x="28" y="140"><tspan fill="#e6edf3">testing, debugging </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> fixing</tspan></text>
   <text x="28" y="164"><tspan fill="#e6edf3">software at the system level.</tspan></text>
   <text x="28" y="212"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/focus</tspan></text>
-  <text x="28" y="236"><tspan fill="#8b949e">[systems]</tspan></text>
-  <text x="28" y="260"><tspan fill="#e6edf3">  linux os </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> shell scripting</tspan></text>
-  <text x="28" y="284"><tspan fill="#e6edf3">  cli tooling </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> automation</tspan></text>
-  <text x="28" y="332"><tspan fill="#8b949e">[android]</tspan></text>
-  <text x="28" y="356"><tspan fill="#e6edf3">  custom rom dev </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> porting</tspan></text>
-  <text x="28" y="380"><tspan fill="#e6edf3">  system apps </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> root modules</tspan></text>
-  <text x="28" y="428"><tspan fill="#8b949e">[low-level]</tspan></text>
-  <text x="28" y="452"><tspan fill="#e6edf3">  os optimization </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> debugging</tspan></text>
-  <text x="28" y="476"><tspan fill="#e6edf3">  hardware </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> audio tuning</tspan></text>
+  <text x="28" y="236"><tspan fill="#79c0ff">[systems]</tspan></text>
+  <text x="46" y="260"><tspan fill="#e6edf3">linux os </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> shell scripting</tspan></text>
+  <text x="46" y="284"><tspan fill="#e6edf3">cli tooling </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> automation</tspan></text>
+  <text x="28" y="332"><tspan fill="#79c0ff">[android]</tspan></text>
+  <text x="46" y="356"><tspan fill="#e6edf3">custom rom dev </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> porting</tspan></text>
+  <text x="46" y="380"><tspan fill="#e6edf3">system apps </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> root modules</tspan></text>
+  <text x="28" y="428"><tspan fill="#79c0ff">[low-level]</tspan></text>
+  <text x="46" y="452"><tspan fill="#e6edf3">os optimization </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> debugging</tspan></text>
+  <text x="46" y="476"><tspan fill="#e6edf3">hardware </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> audio tuning</tspan></text>
   <text x="28" y="524"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/loop</tspan></text>
   <text x="28" y="548"><tspan fill="#ff7b72">while</tspan><tspan fill="#e6edf3"> true; </tspan><tspan fill="#ff7b72">do</tspan></text>
-  <text x="28" y="572"><tspan fill="#e6edf3">  test </tspan><tspan fill="#ff7b72">||</tspan><tspan fill="#e6edf3"> debug </tspan><tspan fill="#ff7b72">&amp;&amp;</tspan><tspan fill="#e6edf3"> fix</tspan></text>
+  <text x="46" y="572"><tspan fill="#e6edf3">test </tspan><tspan fill="#ff7b72">||</tspan><tspan fill="#e6edf3"> debug </tspan><tspan fill="#ff7b72">&amp;&amp;</tspan><tspan fill="#e6edf3"> fix</tspan></text>
   <text x="28" y="596"><tspan fill="#ff7b72">done</tspan></text>
   </g>
 </svg>
