@@ -2,25 +2,25 @@
   <defs>
     <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#050505"/>
-      <stop offset="60%" stop-color="#121316"/>
-      <stop offset="100%" stop-color="#1f2329"/>
+      <stop offset="60%" stop-color="#101216"/>
+      <stop offset="100%" stop-color="#181b20"/>
     </linearGradient>
     <linearGradient id="duneGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#14171c"/>
-      <stop offset="50%" stop-color="#1a1e24"/>
-      <stop offset="100%" stop-color="#101216"/>
+      <stop offset="0%" stop-color="#121418"/>
+      <stop offset="50%" stop-color="#181c22"/>
+      <stop offset="100%" stop-color="#0f1114"/>
     </linearGradient>
     <linearGradient id="duneGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0e1014"/>
-      <stop offset="50%" stop-color="#15181e"/>
-      <stop offset="100%" stop-color="#0a0c0e"/>
+      <stop offset="0%" stop-color="#0c0e11"/>
+      <stop offset="50%" stop-color="#13161c"/>
+      <stop offset="100%" stop-color="#08090b"/>
     </linearGradient>
     <linearGradient id="duneGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#090a0d"/>
-      <stop offset="100%" stop-color="#020203"/>
+      <stop offset="0%" stop-color="#08090b"/>
+      <stop offset="100%" stop-color="#020202"/>
     </linearGradient>
     <linearGradient id="streamGrad" x1="50%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%" stop-color="#e6edf3" stop-opacity="0.8"/>
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
       <stop offset="100%" stop-color="#8b949e" stop-opacity="0.2"/>
     </linearGradient>
   </defs>
@@ -46,13 +46,13 @@
   <!-- Typography -->
   <g text-anchor="middle">
     <!-- Main Title -->
-    <text x="450" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'JetBrains Mono', 'Fira Code', monospace" font-size="27" font-weight="600" fill="#f0f6fc" letter-spacing="3.5">
+    <text x="450" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'JetBrains Mono', 'Fira Code', monospace" font-size="28" font-weight="600" fill="#f0f6fc" letter-spacing="3.5">
       Welcome to Omi&apos;s Workspace
     </text>
 
-    <!-- Subtitle / Prompt Tag -->
+    <!-- Subtitle -->
     <text x="450" y="118" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="12" font-weight="500" fill="#8b949e" letter-spacing="5.5">
-      &lt; LOW-LEVEL ANDROID &bull; AOSP &bull; FIRMWARE /&gt;
+      &lt; REVERSE ENGINEERING &#8226; LINUX KERNEL &#8226; ANDROID INTERNALS /&gt;
     </text>
   </g>
 </svg>

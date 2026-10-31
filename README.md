@@ -29,43 +29,50 @@
 
 ```text
 > whoami
-Android Systems & Kernel Enthusiast | Reverse Engineering | Firmware Tinkerer
+Systems Engineer & Security Researcher • Reverse Engineering • Linux Kernel • AOSP
 ```
 
-- 📱 **Firmware & Porting**: Bringing up custom ROMs, vendor patches, and AOSP device trees on **MediaTek MT6769V/CZ**.
-- 🛠️ **Root Modules**: Crafting hardware-calibrated **Magisk** audio enhancements, thermal profiles, and systemless tweaks.
-- ⚡ **Low-Level Tinkering**: Exploring Linux 4.14 kernel internals, vendor HALs, init scripts, and SELinux policies.
-- 💻 **Development Lab**: Operating locally within an optimized Android **Termux** environment.
+- 🛡️ **Reverse Engineering & Vulnerability Research**: Firmware extraction, cryptographic analysis (AES/Scrypt/RSA), TrustZone/TEE Keymaster blob unwrapping, BootROM (BROM) exploitation, and Smali bytecode disassembly.
+- ⚡ **Linux Kernel Engineering**: Subsystem driver tuning, dynamic MIPI DSI PLL clock modulation via debugfs, AnyKernel3 packaging, and Device Tree Source (DTS) configuration.
+- 📱 **Android Internals & AOSP**: Custom ROM architecture, Hardware Abstraction Layer (HAL) bring-ups, vendor partition reconstruction, and Magisk / Zygisk systemless instrumentation.
 
 <br clear="right"/>
 
 ---
 
-### 🛠️ Technologies & Toolchain
+### 🛠️ Core Engineering Stack
 
 <div align="center">
 
   <!-- Languages -->
   <img src="https://img.shields.io/badge/C-000000?style=for-the-badge&logo=c&logoColor=white" alt="C" />
   <img src="https://img.shields.io/badge/C++-000000?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++" />
-  <img src="https://img.shields.io/badge/BASH-000000?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Bash" />
   <img src="https://img.shields.io/badge/PYTHON-000000?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/ARM64-000000?style=for-the-badge&logo=arm&logoColor=white" alt="ARM64" />
+  <img src="https://img.shields.io/badge/BASH-000000?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Bash" />
+  <img src="https://img.shields.io/badge/ASSEMBLY-000000?style=for-the-badge&logoColor=white" alt="Assembly" />
 
   <br/>
 
-  <!-- Systems & Platform -->
-  <img src="https://img.shields.io/badge/LINUX_KERNEL-000000?style=for-the-badge&logo=linux&logoColor=white" alt="Linux" />
-  <img src="https://img.shields.io/badge/ANDROID_AOSP-000000?style=for-the-badge&logo=android&logoColor=white" alt="Android" />
-  <img src="https://img.shields.io/badge/MAGISK-000000?style=for-the-badge&logo=magisk&logoColor=white" alt="Magisk" />
-  <img src="https://img.shields.io/badge/TERMUX-000000?style=for-the-badge&logo=termux&logoColor=white" alt="Termux" />
+  <!-- Systems & Platforms -->
+  <img src="https://img.shields.io/badge/LINUX_KERNEL-000000?style=for-the-badge&logo=linux&logoColor=white" alt="Linux Kernel" />
+  <img src="https://img.shields.io/badge/ANDROID_AOSP-000000?style=for-the-badge&logo=android&logoColor=white" alt="Android AOSP" />
+  <img src="https://img.shields.io/badge/ARCH_LINUX-000000?style=for-the-badge&logo=arch-linux&logoColor=white" alt="Arch Linux" />
+  <img src="https://img.shields.io/badge/EMBEDDED_LINUX-000000?style=for-the-badge&logoColor=white" alt="Embedded Linux" />
 
   <br/>
 
-  <!-- Tools & Workflow -->
-  <img src="https://img.shields.io/badge/GIT-000000?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
-  <img src="https://img.shields.io/badge/NEOVIM-000000?style=for-the-badge&logo=neovim&logoColor=white" alt="Neovim" />
-  <img src="https://img.shields.io/badge/MARKDOWN-000000?style=for-the-badge&logo=markdown&logoColor=white" alt="Markdown" />
+  <!-- Analysis & Security -->
+  <img src="https://img.shields.io/badge/GHIDRA-000000?style=for-the-badge&logoColor=white" alt="Ghidra" />
+  <img src="https://img.shields.io/badge/GDB-000000?style=for-the-badge&logo=gnu&logoColor=white" alt="GDB" />
+  <img src="https://img.shields.io/badge/FRIDA-000000?style=for-the-badge&logoColor=white" alt="Frida" />
+  <img src="https://img.shields.io/badge/SMALI-000000?style=for-the-badge&logoColor=white" alt="Smali" />
+
+  <br/>
+
+  <!-- Android & Firmware Toolchain -->
+  <img src="https://img.shields.io/badge/DEVICE_TREES_(DTS)-000000?style=for-the-badge&logoColor=white" alt="Device Trees" />
+  <img src="https://img.shields.io/badge/MAGISK_/_ZYGISK-000000?style=for-the-badge&logo=magisk&logoColor=white" alt="Magisk" />
+  <img src="https://img.shields.io/badge/ANYKERNEL3-000000?style=for-the-badge&logoColor=white" alt="AnyKernel3" />
 
 </div>
 
@@ -79,31 +86,31 @@ Android Systems & Kernel Enthusiast | Reverse Engineering | Firmware Tinkerer
 
 ---
 
-### 🚀 Featured Lab Projects
+### 🚀 Selected Engineering Projects
 
 <table>
   <tr>
     <td width="50%">
-      <b><a href="https://github.com/omi4real/Realme-Narzo-30A-RMX3171-AOSP-Device-Tree">Realme-Narzo-30A-AOSP-Device-Tree</a></b>
+      <b><a href="https://github.com/omi4real/Realme-Narzo-30A-Display-OC-Toolkit">MIPI DSI Overclock &amp; AnyKernel3 Engine</a></b>
       <br/>
-      <i>Hardware-calibrated AOSP device tree and HAL configurations for MediaTek MT6769V (Helio G85).</i>
+      <i>Automated display subsystem overclocking toolkit leveraging dynamic debugfs MIPI PLL clock modulation (zero reboot) and AnyKernel3 boot image patch generation.</i>
     </td>
     <td width="50%">
-      <b><a href="https://github.com/omi4real/Realme-Narzo-30A-Magisk-Addons">Realme-Narzo-30A-Magisk-Addons</a></b>
+      <b><a href="https://github.com/omi4real/walton-primo-gm3-forensics">Hardware Forensics &amp; FDE Decryption</a></b>
       <br/>
-      <i>Systemless root modules, audio processing pipeline, and hardware-specific performance adjustments.</i>
+      <i>eMMC hardware forensics, BootROM (BROM) USB bypass, TrustZone/TEE Keymaster blob unwrapping, and offline Scrypt + RSA signature cryptographic derivation.</i>
     </td>
   </tr>
   <tr>
     <td width="50%">
-      <b><a href="https://github.com/omi4real/Realme-Narzo-30A-RMX3171-keepQASSA-Unofficial">RMX3171-keepQASSA-Unofficial</a></b>
+      <b><a href="https://github.com/omi4real/Realme-Narzo-30A-RMX3171-AOSP-Device-Tree">AOSP Device Tree &amp; HAL Bring-Up</a></b>
       <br/>
-      <i>Custom Android 10 (Q) ROM port maintaining legacy stability, high endurance, and thermal calibration.</i>
+      <i>Hardware-calibrated AOSP device tree, proprietary vendor HAL adaptation, and kernel configuration for MediaTek MT6769V (Helio G85).</i>
     </td>
     <td width="50%">
-      <b><a href="https://github.com/omi4real/hisilicon-tvbox-mod">HiSilicon-TVBox-Mod</a></b>
+      <b><a href="https://github.com/omi4real/Realme-Narzo-30A-RMX3171-keepQASSA-Unofficial">Unofficial Android 10 (Q) ROM Port</a></b>
       <br/>
-      <i>Firmware modifications, partition reconstruction, and reverse-engineered boot environments.</i>
+      <i>Custom AOSP-based Android 10 ROM port with framework smali bytecode patches, thermal recalibration, and battery lifecycle optimization.</i>
     </td>
   </tr>
 </table>
