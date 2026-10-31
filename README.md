@@ -1,12 +1,7 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/omi4real/omi4real/main/assets/banner.png" alt="omi4real" width="100%" />
   <br/><br/>
-  <a href="https://t.me/ninjagoshe">
-    <img src="https://img.shields.io/badge/telegram-@ninjagoshe-08080a?style=for-the-badge&logo=telegram&logoColor=e6edf3&labelColor=08080a" alt="Telegram" />
-  </a>
-  <a href="mailto:labibmostafa999@gmail.com">
-    <img src="https://img.shields.io/badge/email-contact-08080a?style=for-the-badge&logo=gmail&logoColor=e6edf3&labelColor=08080a" alt="Email" />
-  </a>
+  <a href="https://t.me/ninjagoshe"><img src="https://raw.githubusercontent.com/omi4real/omi4real/main/assets/tg.svg" width="38" height="38" alt="Telegram" /></a>&nbsp;&nbsp;&nbsp;<a href="mailto:labibmostafa999@gmail.com"><img src="https://raw.githubusercontent.com/omi4real/omi4real/main/assets/mail.svg" width="38" height="38" alt="Email" /></a>
 </div>
 
 <br/>
@@ -14,42 +9,27 @@
 ```sh
 omi@tty1:~$ whoami
 omi (@omi4real)
-systems tinkerer & android rom developer.
-spending most hours in open terminals:
-testing, debugging, and fixing things at
-the framework and kernel level.
+linux & android rom developer.
+living in open terminals—
+testing, debugging & fixing at
+the framework & kernel level.
 
-omi@tty1:~$ cat /etc/capabilities
+omi@tty1:~$ cat /etc/focus
 [systems]
-  linux administration, posix shell
-  automation, init daemons & runtime
-  service scripting
+  linux admin & posix shell
+  init daemons & automation
 
 [android]
-  custom rom development & device porting,
-  aosp framework & bytecode patching,
-  vendor hal integration & sepolicy debugging
+  rom dev & device bringup
+  aosp framework & bytecode
+  vendor hal & sepolicy
 
-[low-level]
-  kernel parameter tuning, sysfs/procfs
-  governance, audio & power subsystem
-  calibration
+[kernel]
+  sysfs & procfs governance
+  runtime subsystem tuning
 
-omi@tty1:~$ ls -la ~/workspace/
-drwxr-xr-x  keepQASSA-Unofficial/
-  └─ android 10 os port & device bringup
-  └─ framework patches, hal & thermal tuning
-
-drwxr-xr-x  Magisk-Addons/
-  └─ systemless root & kernel tuning suite
-  └─ alsa register routing, schedutil & i/o
-
-drwx------  staging/
-  └─ local trees & automation scripts
-     [private]
-
-omi@tty1:~$ while true; do
->   test_build || debug_logcat
->   patch_subsystem && verify_runtime
-> done
+omi@tty1:~$ cat /proc/loop
+while true; do
+  test || debug && fix
+done
 ```
