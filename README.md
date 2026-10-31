@@ -1,92 +1,55 @@
 <div align="center">
-
-  <!-- Dithered Halftone Terminal Banner -->
-  <img src="https://raw.githubusercontent.com/omi4real/omi4real/main/assets/banner.svg" alt="omi4real terminal banner" width="100%" />
-
+  <img src="https://raw.githubusercontent.com/omi4real/omi4real/main/assets/banner.png" alt="omi4real" width="100%" />
   <br/><br/>
-
-  <!-- Minimal Monochrome Navigation -->
-  <a href="https://github.com/omi4real">
-    <img src="https://img.shields.io/badge/GITHUB-000000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  <a href="https://t.me/ninjagoshe">
+    <img src="https://img.shields.io/badge/telegram-@ninjagoshe-08080a?style=for-the-badge&logo=telegram&logoColor=e6edf3&labelColor=08080a" alt="Telegram" />
   </a>
-  <a href="https://t.me/omi4real">
-    <img src="https://img.shields.io/badge/TELEGRAM-000000?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram" />
+  <a href="mailto:labibmostafa999@gmail.com">
+    <img src="https://img.shields.io/badge/email-contact-08080a?style=for-the-badge&logo=gmail&logoColor=e6edf3&labelColor=08080a" alt="Email" />
   </a>
-  <a href="https://xdaforums.com">
-    <img src="https://img.shields.io/badge/XDA_DEVELOPERS-000000?style=for-the-badge&logo=xda-developers&logoColor=white" alt="XDA" />
-  </a>
-  <a href="mailto:contact@omi.dev">
-    <img src="https://img.shields.io/badge/CONTACT-000000?style=for-the-badge&logo=gmail&logoColor=white" alt="Contact" />
-  </a>
-
 </div>
 
 <br/>
 
-```bash
-omi@archbox:~$ whoami
-```
+```sh
+omi@tty1:~$ whoami
+omi (@omi4real)
+systems tinkerer & android rom developer.
+spending most hours in open terminals:
+testing, debugging, and fixing things at
+the framework and kernel level.
 
-> **omi** (`@omi4real`)  
-> Systems tinkerer & Android ROM maintainer. Daily driving Linux, spending most waking hours in open terminals: testing, debugging, and fixing things that shouldn't be broken.
+omi@tty1:~$ cat /etc/capabilities
+[systems]
+  linux administration, posix shell
+  automation, init daemons & runtime
+  service scripting
 
-```bash
-omi@archbox:~$ cat /etc/runtime.conf
-```
+[android]
+  custom rom development & device porting,
+  aosp framework & bytecode patching,
+  vendor hal integration & sepolicy debugging
 
-```text
-[ENGINEERING LOOP]
-while [ $DEVICE_ALIVE -eq 1 ]; do
-    test_build      || debug_logcat
-    patch_subsystem || fix_smali
-    flash_partition || reset_recovery
-    # loop: test -> debug -> fix -> repeat
-done
-```
+[low-level]
+  kernel parameter tuning, sysfs/procfs
+  governance, audio & power subsystem
+  calibration
 
-```bash
-omi@archbox:~$ cat /var/log/focus.log
-```
+omi@tty1:~$ ls -la ~/workspace/
+drwxr-xr-x  keepQASSA-Unofficial/
+  └─ android 10 os port & device bringup
+  └─ framework patches, hal & thermal tuning
 
-- 📱 **Android Custom ROM Porting**: Maintaining `#keepQASSA` (Android 10 Q) as an uncompromising daily driver—stripping OEM bloat, calibrating thermal profiles, and tuning power governors for 6000mAh battery endurance.
-- 🔊 **Hardware Subsystem Calibration**: Direct register manipulation on MediaTek audio codecs (MT6358 / SIA8101), locking analog ALSA mixer stages, and synchronizing 180Hz gaming touch sampling rates.
-- ⚡ **Kernel & Root Governance**: Authoring hardware-specific Magisk suites, Schedutil CPU governor latency reduction (500μs), MediaTek GED GPU boosts, and eMMC 5.1 deadline I/O schedulers.
+drwxr-xr-x  Magisk-Addons/
+  └─ systemless root & kernel tuning suite
+  └─ alsa register routing, schedutil & i/o
 
-```bash
-omi@archbox:~$ which toolchain
-```
+drwx------  staging/
+  └─ local trees & automation scripts
+     [private]
 
-<div align="center">
-
-  <!-- Core Languages -->
-  <img src="https://img.shields.io/badge/C-000000?style=for-the-badge&logo=c&logoColor=white" alt="C" />
-  <img src="https://img.shields.io/badge/C++-000000?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++" />
-  <img src="https://img.shields.io/badge/BASH-000000?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Bash" />
-  <img src="https://img.shields.io/badge/PYTHON-000000?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-
-  <br/>
-
-  <!-- Systems & Platforms -->
-  <img src="https://img.shields.io/badge/LINUX_KERNEL-000000?style=for-the-badge&logo=linux&logoColor=white" alt="Linux Kernel" />
-  <img src="https://img.shields.io/badge/ANDROID_AOSP-000000?style=for-the-badge&logo=android&logoColor=white" alt="Android AOSP" />
-  <img src="https://img.shields.io/badge/ARCH_LINUX-000000?style=for-the-badge&logo=arch-linux&logoColor=white" alt="Arch Linux" />
-  <img src="https://img.shields.io/badge/MAGISK-000000?style=for-the-badge&logo=magisk&logoColor=white" alt="Magisk" />
-
-</div>
-
-```bash
-omi@archbox:~$ ls -la ~/public-deployments/
-```
-
-| Repository | Role & Subsystems | Status |
-| :--- | :--- | :--- |
-| **[`Realme-Narzo-30A-RMX3171-keepQASSA-Unofficial`](https://github.com/omi4real/Realme-Narzo-30A-RMX3171-keepQASSA-Unofficial)** | Unofficial Android 10 (Q) Daily Driver ROM port. Stripped OEM bloat, optimized thermal governors, and extreme battery lifecycle endurance. | `Daily Driver` `Stable` |
-| **[`Realme-Narzo-30A-Magisk-Addons`](https://github.com/omi4real/Realme-Narzo-30A-Magisk-Addons)** | Hardware-calibrated root suite: MT6358 ALSA codec unlocking, 180Hz gaming touch sampling, Schedutil CPU latency tuning, and eMMC 5.1 deadline I/O. | `Verified` `Active` |
-
-```bash
-omi@archbox:~$ cat ~/.signature
-```
-
-```text
-omi@archbox:~$ read the manual █
+omi@tty1:~$ while true; do
+>   test_build || debug_logcat
+>   patch_subsystem && verify_runtime
+> done
 ```
