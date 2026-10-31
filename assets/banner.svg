@@ -1,0 +1,58 @@
+<svg width="100%" height="240" viewBox="0 0 900 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#050505"/>
+      <stop offset="60%" stop-color="#121316"/>
+      <stop offset="100%" stop-color="#1f2329"/>
+    </linearGradient>
+    <linearGradient id="duneGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14171c"/>
+      <stop offset="50%" stop-color="#1a1e24"/>
+      <stop offset="100%" stop-color="#101216"/>
+    </linearGradient>
+    <linearGradient id="duneGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0e1014"/>
+      <stop offset="50%" stop-color="#15181e"/>
+      <stop offset="100%" stop-color="#0a0c0e"/>
+    </linearGradient>
+    <linearGradient id="duneGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#090a0d"/>
+      <stop offset="100%" stop-color="#020203"/>
+    </linearGradient>
+    <linearGradient id="streamGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#e6edf3" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#8b949e" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="900" height="240" rx="8" fill="url(#skyGrad)"/>
+
+  <!-- Distant Dunes / Mountains -->
+  <path d="M0,175 Q225,125 450,165 T900,150 L900,240 L0,240 Z" fill="url(#duneGrad1)"/>
+  
+  <!-- Mid Dune Layer -->
+  <path d="M0,195 Q250,150 520,185 T900,175 L900,240 L0,240 Z" fill="url(#duneGrad2)"/>
+
+  <!-- Foreground Dune -->
+  <path d="M0,215 Q180,180 400,210 Q650,230 900,195 L900,240 L0,240 Z" fill="url(#duneGrad3)"/>
+
+  <!-- River Stream winding through dunes -->
+  <path d="M470,165 C460,180 440,190 455,205 C470,220 440,235 420,240 L450,240 C470,235 495,218 475,203 C460,190 480,175 480,165 Z" fill="url(#streamGrad)"/>
+
+  <!-- Sleek Subtle Border -->
+  <rect x="0.5" y="0.5" width="899" height="239" rx="8" stroke="#30363d" stroke-width="1" fill="none"/>
+
+  <!-- Typography -->
+  <g text-anchor="middle">
+    <!-- Main Title -->
+    <text x="450" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'JetBrains Mono', 'Fira Code', monospace" font-size="27" font-weight="600" fill="#f0f6fc" letter-spacing="3.5">
+      Welcome to Omi&apos;s Workspace
+    </text>
+
+    <!-- Subtitle / Prompt Tag -->
+    <text x="450" y="118" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="12" font-weight="500" fill="#8b949e" letter-spacing="5.5">
+      &lt; LOW-LEVEL ANDROID &bull; AOSP &bull; FIRMWARE /&gt;
+    </text>
+  </g>
+</svg>
