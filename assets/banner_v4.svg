@@ -22,8 +22,9 @@
 
       .frame {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        font-size: 27px;
-        font-weight: bold;
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: -0.2px;
         opacity: 0;
         animation-duration: 2.2s;
         animation-timing-function: step-end;
@@ -47,8 +48,9 @@
 
       .xinit_line {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        font-size: 18px;
-        font-weight: 600;
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: -0.2px;
         opacity: 0;
         animation: xinit_dump 2.2s step-end 1 forwards;
       }
@@ -61,31 +63,31 @@
   <!-- Goldilocks startx Timing (Runs ONCE 0.0s to 2.2s, stops with cursor hidden) -->
   <g xml:space="preserve">
     <!-- Frame 0: 0.0s - 0.70s (omi@tty1:~$ &#9608; Settle with one blink) -->
-    <text x="60" y="178" class="frame f0_a"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> &#9608;</tspan></text>
-    <text x="60" y="178" class="frame f0_b"><tspan fill="#7ee787">omi@tty1:~$</tspan></text>
+    <text x="52" y="175" class="frame f0_a"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> &#9608;</tspan></text>
+    <text x="52" y="175" class="frame f0_b"><tspan fill="#7ee787">omi@tty1:~$</tspan></text>
 
     <!-- Frame 1: 0.70s - 0.867s (omi@tty1:~$ s&#9608;) -->
-    <text x="60" y="178" class="frame f1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> s&#9608;</tspan></text>
+    <text x="52" y="175" class="frame f1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> s&#9608;</tspan></text>
 
     <!-- Frame 2: 0.867s - 1.033s (omi@tty1:~$ st&#9608;) -->
-    <text x="60" y="178" class="frame f2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> st&#9608;</tspan></text>
+    <text x="52" y="175" class="frame f2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> st&#9608;</tspan></text>
 
     <!-- Frame 3: 1.033s - 1.200s (omi@tty1:~$ sta&#9608;) -->
-    <text x="60" y="178" class="frame f3"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> sta&#9608;</tspan></text>
+    <text x="52" y="175" class="frame f3"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> sta&#9608;</tspan></text>
 
     <!-- Frame 4: 1.200s - 1.367s (omi@tty1:~$ star&#9608;) -->
-    <text x="60" y="178" class="frame f4"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> star&#9608;</tspan></text>
+    <text x="52" y="175" class="frame f4"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> star&#9608;</tspan></text>
 
     <!-- Frame 5: 1.367s - 1.533s (omi@tty1:~$ start&#9608;) -->
-    <text x="60" y="178" class="frame f5"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> start&#9608;</tspan></text>
+    <text x="52" y="175" class="frame f5"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> start&#9608;</tspan></text>
 
     <!-- Frame 6: 1.533s - 2.200s (omi@tty1:~$ startx&#9608; holds 0.5s pre-enter) -->
-    <text x="60" y="178" class="frame f6"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> startx&#9608;</tspan></text>
+    <text x="52" y="175" class="frame f6"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> startx&#9608;</tspan></text>
 
     <!-- Permanent State: 2.2s -> forever (omi@tty1:~$ startx with cursor hidden) -->
-    <text x="60" y="178" class="frame f_perm"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> startx</tspan></text>
+    <text x="52" y="175" class="frame f_perm"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> startx</tspan></text>
 
     <!-- Live xinit Kitty Launch Trigger (Appears at 2.20s as startx executes) -->
-    <text x="60" y="220" class="xinit_line"><tspan fill="#79c0ff">[xinit]</tspan><tspan fill="#c9d1d9"> exec kitty -e ~/.local/bin/profile.sh </tspan><tspan fill="#ff7b72">&amp;</tspan></text>
+    <text x="52" y="222" class="xinit_line"><tspan fill="#79c0ff">[xinit]</tspan><tspan fill="#c9d1d9"> exec kitty -e ~/.local/bin/profile.sh </tspan><tspan fill="#ff7b72">&amp;</tspan></text>
   </g>
 </svg>
