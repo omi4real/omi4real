@@ -1,202 +1,191 @@
 <svg width="100%" height="100%" viewBox="0 0 760 440" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden;">
   <defs>
-    <!-- Monochrome Silver Gradients for Star Glow -->
-    <radialGradient id="silver-aura" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
-      <stop offset="22%" stop-color="#e6edf3" stop-opacity="0.55" />
-      <stop offset="55%" stop-color="#8b949e" stop-opacity="0.18" />
-      <stop offset="100%" stop-color="#08080a" stop-opacity="0" />
-    </radialGradient>
-    <linearGradient id="silver-flare" x1="0%" y1="50%" x2="100%" y2="50%">
-      <stop offset="0%" stop-color="#e6edf3" stop-opacity="0" />
-      <stop offset="35%" stop-color="#c9d1d9" stop-opacity="0.45" />
-      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.95" />
-      <stop offset="65%" stop-color="#c9d1d9" stop-opacity="0.45" />
-      <stop offset="100%" stop-color="#e6edf3" stop-opacity="0" />
-    </linearGradient>
-
     <style>
       @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
       .cursor { animation: blink 1s step-end infinite; }
 
-      /* --- Step 1: Hand Choreography --- */
+      /* --- Step 1: Smooth Off-Screen Entry (0.0s - 2.2s) --- */
       @keyframes left_intro {
-        0% { transform: translate3d(-380px, -18px, 0); }
-        58% { transform: translate3d(8px, 8px, 0); }
-        71% { transform: translate3d(8px, 8px, 0); }
-        100% { transform: translate3d(-24px, 0px, 0); }
-      }
-      @keyframes left_sway {
-        0%, 100% { transform: translate3d(0px, 0px, 0); }
-        25% { transform: translate3d(6px, -14px, 0); }
-        50% { transform: translate3d(-5px, 4px, 0); }
-        75% { transform: translate3d(4px, 14px, 0); }
+        0% { transform: translate3d(-380px, -12px, 0); }
+        100% { transform: translate3d(0px, 0px, 0); }
       }
       #left-hand-intro {
         will-change: transform;
-        animation: left_intro 3.8s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
-      }
-      #left-hand-sway {
-        will-change: transform;
-        animation: left_sway 5.6s ease-in-out 3.8s infinite both;
+        animation: left_intro 2.2s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
       }
 
       @keyframes right_intro {
-        0% { transform: translate3d(380px, 18px, 0); }
-        58% { transform: translate3d(3px, -7px, 0); }
-        71% { transform: translate3d(3px, -7px, 0); }
-        100% { transform: translate3d(24px, 0px, 0); }
-      }
-      @keyframes right_sway {
-        0%, 100% { transform: translate3d(0px, 0px, 0); }
-        25% { transform: translate3d(-6px, 14px, 0); }
-        50% { transform: translate3d(5px, -4px, 0); }
-        75% { transform: translate3d(-4px, -14px, 0); }
+        0% { transform: translate3d(380px, 12px, 0); }
+        100% { transform: translate3d(0px, 0px, 0); }
       }
       #right-hand-intro {
         will-change: transform;
-        animation: right_intro 3.8s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
+        animation: right_intro 2.2s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
+      }
+
+      /* --- Step 2: Infinite Sway + Periodic Touch Loop (2.2s -> forever) --- */
+      @keyframes left_sway {
+        0% { transform: translate3d(0px, 0px, 0); }
+        18% { transform: translate3d(-16px, -14px, 0); }
+        35% { transform: translate3d(-8px, 12px, 0); }
+        50% { transform: translate3d(8px, 8px, 0); }
+        62% { transform: translate3d(-18px, -6px, 0); }
+        82% { transform: translate3d(-6px, 14px, 0); }
+        100% { transform: translate3d(0px, 0px, 0); }
+      }
+      #left-hand-sway {
+        will-change: transform;
+        animation: left_sway 9.0s ease-in-out 2.2s infinite both;
+      }
+
+      @keyframes right_sway {
+        0% { transform: translate3d(0px, 0px, 0); }
+        22% { transform: translate3d(16px, 14px, 0); }
+        38% { transform: translate3d(10px, -12px, 0); }
+        50% { transform: translate3d(3px, -7px, 0); }
+        62% { transform: translate3d(20px, 8px, 0); }
+        80% { transform: translate3d(8px, -14px, 0); }
+        100% { transform: translate3d(0px, 0px, 0); }
       }
       #right-hand-sway {
         will-change: transform;
-        animation: right_sway 5.6s ease-in-out 4.5s infinite both;
+        animation: right_sway 9.0s ease-in-out 2.2s infinite both;
       }
 
-      /* --- Step 2: Monochrome Silver Star Glow at (385, 245) --- */
-      @keyframes silverBloom {
-        0%, 72% { opacity: 0; transform: scale(0.12); }
-        74% { opacity: 1; transform: scale(0.55); }
-        85% { opacity: 1; transform: scale(1.0); }
-        100% { opacity: 0.55; transform: scale(1.0); }
+      /* --- Step 3: Minimal Monochrome Dot-Matrix Flicker (Synced to 9.0s Touch Loop) --- */
+      @keyframes dotFlicker {
+        0%, 48.0% { opacity: 0; }
+        48.5% { opacity: 0.95; }
+        49.8% { opacity: 0.35; }
+        50.8% { opacity: 1.0; }
+        52.5%, 100% { opacity: 0; }
       }
-      #silver-star-glow {
+      #dot-flicker {
         opacity: 0;
-        transform-origin: 0 0;
-        will-change: transform, opacity;
-        animation: silverBloom 3.0s cubic-bezier(0.16, 1, 0.3, 1) 1 forwards;
+        will-change: opacity;
+        animation: dotFlicker 9.0s step-end 2.2s infinite;
       }
 
-      /* --- Step 3: Spawn kitty-window (2.35s - 2.95s) --- */
-      @keyframes kitty_spawn {
-        0% { opacity: 0; transform: scale(0.92); }
-        100% { opacity: 1; transform: scale(1.0); }
+      /* --- Kitty Window Fade-In (2.20s - 2.75s) --- */
+      @keyframes kitty_fade {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
       }
       #kitty-window {
         opacity: 0;
-        transform-origin: 380px 220px;
-        will-change: transform, opacity;
-        animation: kitty_spawn 0.60s cubic-bezier(0.22, 1, 0.36, 1) 2.35s 1 forwards;
+        will-change: opacity;
+        animation: kitty_fade 0.55s cubic-bezier(0.22, 1, 0.36, 1) 2.20s 1 forwards;
       }
 
-      /* Terminal Typing Keyframes (9.2s Choreography) */
-@keyframes k_p1_idle { 0%, 32.06% { opacity: 0; } 32.07%, 36.95% { opacity: 1; } 36.96%, 100% { opacity: 0; } }
-@keyframes k_c1_0 { 0%, 36.95% { opacity: 0; } 36.96%, 37.80% { opacity: 1; } 37.81%, 100% { opacity: 0; } }
-@keyframes k_c1_1 { 0%, 37.80% { opacity: 0; } 37.81%, 38.65% { opacity: 1; } 38.66%, 100% { opacity: 0; } }
-@keyframes k_c1_2 { 0%, 38.65% { opacity: 0; } 38.66%, 39.51% { opacity: 1; } 39.52%, 100% { opacity: 0; } }
-@keyframes k_c1_3 { 0%, 39.51% { opacity: 0; } 39.52%, 40.36% { opacity: 1; } 40.37%, 100% { opacity: 0; } }
-@keyframes k_c1_4 { 0%, 40.36% { opacity: 0; } 40.37%, 41.22% { opacity: 1; } 41.23%, 100% { opacity: 0; } }
-@keyframes k_c1_5 { 0%, 41.22% { opacity: 0; } 41.23%, 42.07% { opacity: 1; } 42.08%, 100% { opacity: 0; } }
-@keyframes k_c1_6 { 0%, 42.07% { opacity: 0; } 42.08%, 42.92% { opacity: 1; } 42.93%, 100% { opacity: 0; } }
-@keyframes k_c1_7 { 0%, 42.92% { opacity: 0; } 42.93%, 43.78% { opacity: 1; } 43.79%, 100% { opacity: 0; } }
-@keyframes k_c1_8 { 0%, 43.78% { opacity: 0; } 43.79%, 44.63% { opacity: 1; } 44.64%, 100% { opacity: 0; } }
-@keyframes k_c1_9 { 0%, 44.63% { opacity: 0; } 44.64%, 45.49% { opacity: 1; } 45.50%, 100% { opacity: 0; } }
-@keyframes k_c1_10 { 0%, 45.49% { opacity: 0; } 45.50%, 46.34% { opacity: 1; } 46.35%, 100% { opacity: 0; } }
-@keyframes k_c1_11 { 0%, 46.34% { opacity: 0; } 46.35%, 47.19% { opacity: 1; } 47.20%, 100% { opacity: 0; } }
-@keyframes k_c1_12 { 0%, 47.19% { opacity: 0; } 47.20%, 48.05% { opacity: 1; } 48.06%, 100% { opacity: 0; } }
-@keyframes k_c1_13 { 0%, 48.05% { opacity: 0; } 48.06%, 48.90% { opacity: 1; } 48.91%, 100% { opacity: 0; } }
-@keyframes k_perm1 { 0%, 48.90% { opacity: 0; } 48.91%, 100% { opacity: 1; } }
-@keyframes k_out1 { 0%, 48.90% { opacity: 0; } 48.91%, 100% { opacity: 1; } }
-@keyframes k_p2_idle { 0%, 48.90% { opacity: 0; } 48.91%, 58.14% { opacity: 1; } 58.15%, 100% { opacity: 0; } }
-@keyframes k_c2_0 { 0%, 58.14% { opacity: 0; } 58.15%, 59.00% { opacity: 1; } 59.01%, 100% { opacity: 0; } }
-@keyframes k_c2_1 { 0%, 59.00% { opacity: 0; } 59.01%, 59.85% { opacity: 1; } 59.86%, 100% { opacity: 0; } }
-@keyframes k_c2_2 { 0%, 59.85% { opacity: 0; } 59.86%, 60.70% { opacity: 1; } 60.71%, 100% { opacity: 0; } }
-@keyframes k_c2_3 { 0%, 60.70% { opacity: 0; } 60.71%, 61.56% { opacity: 1; } 61.57%, 100% { opacity: 0; } }
-@keyframes k_c2_4 { 0%, 61.56% { opacity: 0; } 61.57%, 62.41% { opacity: 1; } 62.42%, 100% { opacity: 0; } }
-@keyframes k_c2_5 { 0%, 62.41% { opacity: 0; } 62.42%, 63.27% { opacity: 1; } 63.28%, 100% { opacity: 0; } }
-@keyframes k_c2_6 { 0%, 63.27% { opacity: 0; } 63.28%, 64.12% { opacity: 1; } 64.13%, 100% { opacity: 0; } }
-@keyframes k_c2_7 { 0%, 64.12% { opacity: 0; } 64.13%, 64.97% { opacity: 1; } 64.98%, 100% { opacity: 0; } }
-@keyframes k_c2_8 { 0%, 64.97% { opacity: 0; } 64.98%, 65.83% { opacity: 1; } 65.84%, 100% { opacity: 0; } }
-@keyframes k_c2_9 { 0%, 65.83% { opacity: 0; } 65.84%, 66.68% { opacity: 1; } 66.69%, 100% { opacity: 0; } }
-@keyframes k_c2_10 { 0%, 66.68% { opacity: 0; } 66.69%, 67.54% { opacity: 1; } 67.55%, 100% { opacity: 0; } }
-@keyframes k_c2_11 { 0%, 67.54% { opacity: 0; } 67.55%, 68.39% { opacity: 1; } 68.40%, 100% { opacity: 0; } }
-@keyframes k_c2_12 { 0%, 68.39% { opacity: 0; } 68.40%, 69.24% { opacity: 1; } 69.25%, 100% { opacity: 0; } }
-@keyframes k_c2_13 { 0%, 69.24% { opacity: 0; } 69.25%, 70.10% { opacity: 1; } 70.11%, 100% { opacity: 0; } }
-@keyframes k_perm2 { 0%, 70.10% { opacity: 0; } 70.11%, 100% { opacity: 1; } }
-@keyframes k_out2 { 0%, 70.10% { opacity: 0; } 70.11%, 100% { opacity: 1; } }
-@keyframes k_p3_idle { 0%, 70.10% { opacity: 0; } 70.11%, 79.34% { opacity: 1; } 79.35%, 100% { opacity: 0; } }
-@keyframes k_c3_0 { 0%, 79.34% { opacity: 0; } 79.35%, 80.19% { opacity: 1; } 80.20%, 100% { opacity: 0; } }
-@keyframes k_c3_1 { 0%, 80.19% { opacity: 0; } 80.20%, 81.05% { opacity: 1; } 81.06%, 100% { opacity: 0; } }
-@keyframes k_c3_2 { 0%, 81.05% { opacity: 0; } 81.06%, 81.90% { opacity: 1; } 81.91%, 100% { opacity: 0; } }
-@keyframes k_c3_3 { 0%, 81.90% { opacity: 0; } 81.91%, 82.75% { opacity: 1; } 82.76%, 100% { opacity: 0; } }
-@keyframes k_c3_4 { 0%, 82.75% { opacity: 0; } 82.76%, 83.61% { opacity: 1; } 83.62%, 100% { opacity: 0; } }
-@keyframes k_c3_5 { 0%, 83.61% { opacity: 0; } 83.62%, 84.46% { opacity: 1; } 84.47%, 100% { opacity: 0; } }
-@keyframes k_c3_6 { 0%, 84.46% { opacity: 0; } 84.47%, 85.32% { opacity: 1; } 85.33%, 100% { opacity: 0; } }
-@keyframes k_c3_7 { 0%, 85.32% { opacity: 0; } 85.33%, 86.17% { opacity: 1; } 86.18%, 100% { opacity: 0; } }
-@keyframes k_c3_8 { 0%, 86.17% { opacity: 0; } 86.18%, 87.02% { opacity: 1; } 87.03%, 100% { opacity: 0; } }
-@keyframes k_c3_9 { 0%, 87.02% { opacity: 0; } 87.03%, 87.88% { opacity: 1; } 87.89%, 100% { opacity: 0; } }
-@keyframes k_c3_10 { 0%, 87.88% { opacity: 0; } 87.89%, 88.73% { opacity: 1; } 88.74%, 100% { opacity: 0; } }
-@keyframes k_c3_11 { 0%, 88.73% { opacity: 0; } 88.74%, 89.59% { opacity: 1; } 89.60%, 100% { opacity: 0; } }
-@keyframes k_c3_12 { 0%, 89.59% { opacity: 0; } 89.60%, 90.44% { opacity: 1; } 90.45%, 100% { opacity: 0; } }
-@keyframes k_c3_13 { 0%, 90.44% { opacity: 0; } 90.45%, 91.29% { opacity: 1; } 91.30%, 100% { opacity: 0; } }
-@keyframes k_perm3 { 0%, 91.29% { opacity: 0; } 91.30%, 100% { opacity: 1; } }
-@keyframes k_out3 { 0%, 91.29% { opacity: 0; } 91.30%, 100% { opacity: 1; } }
-@keyframes k_p4 { 0%, 91.29% { opacity: 0; } 91.30%, 100% { opacity: 1; } }
+      /* Terminal Typing Keyframes (9.0s Choreography) */
+@keyframes k_p1_idle { 0%, 30.55% { opacity: 0; } 30.56%, 35.55% { opacity: 1; } 35.56%, 100% { opacity: 0; } }
+@keyframes k_c1_0 { 0%, 35.55% { opacity: 0; } 35.56%, 36.42% { opacity: 1; } 36.43%, 100% { opacity: 0; } }
+@keyframes k_c1_1 { 0%, 36.42% { opacity: 0; } 36.43%, 37.29% { opacity: 1; } 37.30%, 100% { opacity: 0; } }
+@keyframes k_c1_2 { 0%, 37.29% { opacity: 0; } 37.30%, 38.16% { opacity: 1; } 38.17%, 100% { opacity: 0; } }
+@keyframes k_c1_3 { 0%, 38.16% { opacity: 0; } 38.17%, 39.04% { opacity: 1; } 39.05%, 100% { opacity: 0; } }
+@keyframes k_c1_4 { 0%, 39.04% { opacity: 0; } 39.05%, 39.91% { opacity: 1; } 39.92%, 100% { opacity: 0; } }
+@keyframes k_c1_5 { 0%, 39.91% { opacity: 0; } 39.92%, 40.78% { opacity: 1; } 40.79%, 100% { opacity: 0; } }
+@keyframes k_c1_6 { 0%, 40.78% { opacity: 0; } 40.79%, 41.66% { opacity: 1; } 41.67%, 100% { opacity: 0; } }
+@keyframes k_c1_7 { 0%, 41.66% { opacity: 0; } 41.67%, 42.53% { opacity: 1; } 42.54%, 100% { opacity: 0; } }
+@keyframes k_c1_8 { 0%, 42.53% { opacity: 0; } 42.54%, 43.40% { opacity: 1; } 43.41%, 100% { opacity: 0; } }
+@keyframes k_c1_9 { 0%, 43.40% { opacity: 0; } 43.41%, 44.28% { opacity: 1; } 44.29%, 100% { opacity: 0; } }
+@keyframes k_c1_10 { 0%, 44.28% { opacity: 0; } 44.29%, 45.15% { opacity: 1; } 45.16%, 100% { opacity: 0; } }
+@keyframes k_c1_11 { 0%, 45.15% { opacity: 0; } 45.16%, 46.02% { opacity: 1; } 46.03%, 100% { opacity: 0; } }
+@keyframes k_c1_12 { 0%, 46.02% { opacity: 0; } 46.03%, 46.89% { opacity: 1; } 46.90%, 100% { opacity: 0; } }
+@keyframes k_c1_13 { 0%, 46.89% { opacity: 0; } 46.90%, 47.77% { opacity: 1; } 47.78%, 100% { opacity: 0; } }
+@keyframes k_perm1 { 0%, 47.77% { opacity: 0; } 47.78%, 100% { opacity: 1; } }
+@keyframes k_out1 { 0%, 47.77% { opacity: 0; } 47.78%, 100% { opacity: 1; } }
+@keyframes k_p2_idle { 0%, 47.77% { opacity: 0; } 47.78%, 57.21% { opacity: 1; } 57.22%, 100% { opacity: 0; } }
+@keyframes k_c2_0 { 0%, 57.21% { opacity: 0; } 57.22%, 58.09% { opacity: 1; } 58.10%, 100% { opacity: 0; } }
+@keyframes k_c2_1 { 0%, 58.09% { opacity: 0; } 58.10%, 58.96% { opacity: 1; } 58.97%, 100% { opacity: 0; } }
+@keyframes k_c2_2 { 0%, 58.96% { opacity: 0; } 58.97%, 59.83% { opacity: 1; } 59.84%, 100% { opacity: 0; } }
+@keyframes k_c2_3 { 0%, 59.83% { opacity: 0; } 59.84%, 60.70% { opacity: 1; } 60.71%, 100% { opacity: 0; } }
+@keyframes k_c2_4 { 0%, 60.70% { opacity: 0; } 60.71%, 61.58% { opacity: 1; } 61.59%, 100% { opacity: 0; } }
+@keyframes k_c2_5 { 0%, 61.58% { opacity: 0; } 61.59%, 62.45% { opacity: 1; } 62.46%, 100% { opacity: 0; } }
+@keyframes k_c2_6 { 0%, 62.45% { opacity: 0; } 62.46%, 63.32% { opacity: 1; } 63.33%, 100% { opacity: 0; } }
+@keyframes k_c2_7 { 0%, 63.32% { opacity: 0; } 63.33%, 64.20% { opacity: 1; } 64.21%, 100% { opacity: 0; } }
+@keyframes k_c2_8 { 0%, 64.20% { opacity: 0; } 64.21%, 65.07% { opacity: 1; } 65.08%, 100% { opacity: 0; } }
+@keyframes k_c2_9 { 0%, 65.07% { opacity: 0; } 65.08%, 65.94% { opacity: 1; } 65.95%, 100% { opacity: 0; } }
+@keyframes k_c2_10 { 0%, 65.94% { opacity: 0; } 65.95%, 66.82% { opacity: 1; } 66.83%, 100% { opacity: 0; } }
+@keyframes k_c2_11 { 0%, 66.82% { opacity: 0; } 66.83%, 67.69% { opacity: 1; } 67.70%, 100% { opacity: 0; } }
+@keyframes k_c2_12 { 0%, 67.69% { opacity: 0; } 67.70%, 68.56% { opacity: 1; } 68.57%, 100% { opacity: 0; } }
+@keyframes k_c2_13 { 0%, 68.56% { opacity: 0; } 68.57%, 69.43% { opacity: 1; } 69.44%, 100% { opacity: 0; } }
+@keyframes k_perm2 { 0%, 69.43% { opacity: 0; } 69.44%, 100% { opacity: 1; } }
+@keyframes k_out2 { 0%, 69.43% { opacity: 0; } 69.44%, 100% { opacity: 1; } }
+@keyframes k_p3_idle { 0%, 69.43% { opacity: 0; } 69.44%, 78.88% { opacity: 1; } 78.89%, 100% { opacity: 0; } }
+@keyframes k_c3_0 { 0%, 78.88% { opacity: 0; } 78.89%, 79.75% { opacity: 1; } 79.76%, 100% { opacity: 0; } }
+@keyframes k_c3_1 { 0%, 79.75% { opacity: 0; } 79.76%, 80.62% { opacity: 1; } 80.63%, 100% { opacity: 0; } }
+@keyframes k_c3_2 { 0%, 80.62% { opacity: 0; } 80.63%, 81.50% { opacity: 1; } 81.51%, 100% { opacity: 0; } }
+@keyframes k_c3_3 { 0%, 81.50% { opacity: 0; } 81.51%, 82.37% { opacity: 1; } 82.38%, 100% { opacity: 0; } }
+@keyframes k_c3_4 { 0%, 82.37% { opacity: 0; } 82.38%, 83.24% { opacity: 1; } 83.25%, 100% { opacity: 0; } }
+@keyframes k_c3_5 { 0%, 83.24% { opacity: 0; } 83.25%, 84.12% { opacity: 1; } 84.13%, 100% { opacity: 0; } }
+@keyframes k_c3_6 { 0%, 84.12% { opacity: 0; } 84.13%, 84.99% { opacity: 1; } 85.00%, 100% { opacity: 0; } }
+@keyframes k_c3_7 { 0%, 84.99% { opacity: 0; } 85.00%, 85.86% { opacity: 1; } 85.87%, 100% { opacity: 0; } }
+@keyframes k_c3_8 { 0%, 85.86% { opacity: 0; } 85.87%, 86.74% { opacity: 1; } 86.75%, 100% { opacity: 0; } }
+@keyframes k_c3_9 { 0%, 86.74% { opacity: 0; } 86.75%, 87.61% { opacity: 1; } 87.62%, 100% { opacity: 0; } }
+@keyframes k_c3_10 { 0%, 87.61% { opacity: 0; } 87.62%, 88.48% { opacity: 1; } 88.49%, 100% { opacity: 0; } }
+@keyframes k_c3_11 { 0%, 88.48% { opacity: 0; } 88.49%, 89.36% { opacity: 1; } 89.37%, 100% { opacity: 0; } }
+@keyframes k_c3_12 { 0%, 89.36% { opacity: 0; } 89.37%, 90.23% { opacity: 1; } 90.24%, 100% { opacity: 0; } }
+@keyframes k_c3_13 { 0%, 90.23% { opacity: 0; } 90.24%, 91.10% { opacity: 1; } 91.11%, 100% { opacity: 0; } }
+@keyframes k_perm3 { 0%, 91.10% { opacity: 0; } 91.11%, 100% { opacity: 1; } }
+@keyframes k_out3 { 0%, 91.10% { opacity: 0; } 91.11%, 100% { opacity: 1; } }
+@keyframes k_p4 { 0%, 91.10% { opacity: 0; } 91.11%, 100% { opacity: 1; } }
 
-.p1_idle { opacity: 0; animation: k_p1_idle 9.2s step-end 1 forwards; }
-.c1_0 { opacity: 0; animation: k_c1_0 9.2s step-end 1 forwards; }
-.c1_1 { opacity: 0; animation: k_c1_1 9.2s step-end 1 forwards; }
-.c1_2 { opacity: 0; animation: k_c1_2 9.2s step-end 1 forwards; }
-.c1_3 { opacity: 0; animation: k_c1_3 9.2s step-end 1 forwards; }
-.c1_4 { opacity: 0; animation: k_c1_4 9.2s step-end 1 forwards; }
-.c1_5 { opacity: 0; animation: k_c1_5 9.2s step-end 1 forwards; }
-.c1_6 { opacity: 0; animation: k_c1_6 9.2s step-end 1 forwards; }
-.c1_7 { opacity: 0; animation: k_c1_7 9.2s step-end 1 forwards; }
-.c1_8 { opacity: 0; animation: k_c1_8 9.2s step-end 1 forwards; }
-.c1_9 { opacity: 0; animation: k_c1_9 9.2s step-end 1 forwards; }
-.c1_10 { opacity: 0; animation: k_c1_10 9.2s step-end 1 forwards; }
-.c1_11 { opacity: 0; animation: k_c1_11 9.2s step-end 1 forwards; }
-.c1_12 { opacity: 0; animation: k_c1_12 9.2s step-end 1 forwards; }
-.c1_13 { opacity: 0; animation: k_c1_13 9.2s step-end 1 forwards; }
-.perm1 { opacity: 0; animation: k_perm1 9.2s step-end 1 forwards; }
-.out1 { opacity: 0; animation: k_out1 9.2s step-end 1 forwards; }
+.p1_idle { opacity: 0; animation: k_p1_idle 9.0s step-end 1 forwards; }
+.c1_0 { opacity: 0; animation: k_c1_0 9.0s step-end 1 forwards; }
+.c1_1 { opacity: 0; animation: k_c1_1 9.0s step-end 1 forwards; }
+.c1_2 { opacity: 0; animation: k_c1_2 9.0s step-end 1 forwards; }
+.c1_3 { opacity: 0; animation: k_c1_3 9.0s step-end 1 forwards; }
+.c1_4 { opacity: 0; animation: k_c1_4 9.0s step-end 1 forwards; }
+.c1_5 { opacity: 0; animation: k_c1_5 9.0s step-end 1 forwards; }
+.c1_6 { opacity: 0; animation: k_c1_6 9.0s step-end 1 forwards; }
+.c1_7 { opacity: 0; animation: k_c1_7 9.0s step-end 1 forwards; }
+.c1_8 { opacity: 0; animation: k_c1_8 9.0s step-end 1 forwards; }
+.c1_9 { opacity: 0; animation: k_c1_9 9.0s step-end 1 forwards; }
+.c1_10 { opacity: 0; animation: k_c1_10 9.0s step-end 1 forwards; }
+.c1_11 { opacity: 0; animation: k_c1_11 9.0s step-end 1 forwards; }
+.c1_12 { opacity: 0; animation: k_c1_12 9.0s step-end 1 forwards; }
+.c1_13 { opacity: 0; animation: k_c1_13 9.0s step-end 1 forwards; }
+.perm1 { opacity: 0; animation: k_perm1 9.0s step-end 1 forwards; }
+.out1 { opacity: 0; animation: k_out1 9.0s step-end 1 forwards; }
 
-.p2_idle { opacity: 0; animation: k_p2_idle 9.2s step-end 1 forwards; }
-.c2_0 { opacity: 0; animation: k_c2_0 9.2s step-end 1 forwards; }
-.c2_1 { opacity: 0; animation: k_c2_1 9.2s step-end 1 forwards; }
-.c2_2 { opacity: 0; animation: k_c2_2 9.2s step-end 1 forwards; }
-.c2_3 { opacity: 0; animation: k_c2_3 9.2s step-end 1 forwards; }
-.c2_4 { opacity: 0; animation: k_c2_4 9.2s step-end 1 forwards; }
-.c2_5 { opacity: 0; animation: k_c2_5 9.2s step-end 1 forwards; }
-.c2_6 { opacity: 0; animation: k_c2_6 9.2s step-end 1 forwards; }
-.c2_7 { opacity: 0; animation: k_c2_7 9.2s step-end 1 forwards; }
-.c2_8 { opacity: 0; animation: k_c2_8 9.2s step-end 1 forwards; }
-.c2_9 { opacity: 0; animation: k_c2_9 9.2s step-end 1 forwards; }
-.c2_10 { opacity: 0; animation: k_c2_10 9.2s step-end 1 forwards; }
-.c2_11 { opacity: 0; animation: k_c2_11 9.2s step-end 1 forwards; }
-.c2_12 { opacity: 0; animation: k_c2_12 9.2s step-end 1 forwards; }
-.c2_13 { opacity: 0; animation: k_c2_13 9.2s step-end 1 forwards; }
-.perm2 { opacity: 0; animation: k_perm2 9.2s step-end 1 forwards; }
-.out2 { opacity: 0; animation: k_out2 9.2s step-end 1 forwards; }
+.p2_idle { opacity: 0; animation: k_p2_idle 9.0s step-end 1 forwards; }
+.c2_0 { opacity: 0; animation: k_c2_0 9.0s step-end 1 forwards; }
+.c2_1 { opacity: 0; animation: k_c2_1 9.0s step-end 1 forwards; }
+.c2_2 { opacity: 0; animation: k_c2_2 9.0s step-end 1 forwards; }
+.c2_3 { opacity: 0; animation: k_c2_3 9.0s step-end 1 forwards; }
+.c2_4 { opacity: 0; animation: k_c2_4 9.0s step-end 1 forwards; }
+.c2_5 { opacity: 0; animation: k_c2_5 9.0s step-end 1 forwards; }
+.c2_6 { opacity: 0; animation: k_c2_6 9.0s step-end 1 forwards; }
+.c2_7 { opacity: 0; animation: k_c2_7 9.0s step-end 1 forwards; }
+.c2_8 { opacity: 0; animation: k_c2_8 9.0s step-end 1 forwards; }
+.c2_9 { opacity: 0; animation: k_c2_9 9.0s step-end 1 forwards; }
+.c2_10 { opacity: 0; animation: k_c2_10 9.0s step-end 1 forwards; }
+.c2_11 { opacity: 0; animation: k_c2_11 9.0s step-end 1 forwards; }
+.c2_12 { opacity: 0; animation: k_c2_12 9.0s step-end 1 forwards; }
+.c2_13 { opacity: 0; animation: k_c2_13 9.0s step-end 1 forwards; }
+.perm2 { opacity: 0; animation: k_perm2 9.0s step-end 1 forwards; }
+.out2 { opacity: 0; animation: k_out2 9.0s step-end 1 forwards; }
 
-.p3_idle { opacity: 0; animation: k_p3_idle 9.2s step-end 1 forwards; }
-.c3_0 { opacity: 0; animation: k_c3_0 9.2s step-end 1 forwards; }
-.c3_1 { opacity: 0; animation: k_c3_1 9.2s step-end 1 forwards; }
-.c3_2 { opacity: 0; animation: k_c3_2 9.2s step-end 1 forwards; }
-.c3_3 { opacity: 0; animation: k_c3_3 9.2s step-end 1 forwards; }
-.c3_4 { opacity: 0; animation: k_c3_4 9.2s step-end 1 forwards; }
-.c3_5 { opacity: 0; animation: k_c3_5 9.2s step-end 1 forwards; }
-.c3_6 { opacity: 0; animation: k_c3_6 9.2s step-end 1 forwards; }
-.c3_7 { opacity: 0; animation: k_c3_7 9.2s step-end 1 forwards; }
-.c3_8 { opacity: 0; animation: k_c3_8 9.2s step-end 1 forwards; }
-.c3_9 { opacity: 0; animation: k_c3_9 9.2s step-end 1 forwards; }
-.c3_10 { opacity: 0; animation: k_c3_10 9.2s step-end 1 forwards; }
-.c3_11 { opacity: 0; animation: k_c3_11 9.2s step-end 1 forwards; }
-.c3_12 { opacity: 0; animation: k_c3_12 9.2s step-end 1 forwards; }
-.c3_13 { opacity: 0; animation: k_c3_13 9.2s step-end 1 forwards; }
-.perm3 { opacity: 0; animation: k_perm3 9.2s step-end 1 forwards; }
-.out3 { opacity: 0; animation: k_out3 9.2s step-end 1 forwards; }
+.p3_idle { opacity: 0; animation: k_p3_idle 9.0s step-end 1 forwards; }
+.c3_0 { opacity: 0; animation: k_c3_0 9.0s step-end 1 forwards; }
+.c3_1 { opacity: 0; animation: k_c3_1 9.0s step-end 1 forwards; }
+.c3_2 { opacity: 0; animation: k_c3_2 9.0s step-end 1 forwards; }
+.c3_3 { opacity: 0; animation: k_c3_3 9.0s step-end 1 forwards; }
+.c3_4 { opacity: 0; animation: k_c3_4 9.0s step-end 1 forwards; }
+.c3_5 { opacity: 0; animation: k_c3_5 9.0s step-end 1 forwards; }
+.c3_6 { opacity: 0; animation: k_c3_6 9.0s step-end 1 forwards; }
+.c3_7 { opacity: 0; animation: k_c3_7 9.0s step-end 1 forwards; }
+.c3_8 { opacity: 0; animation: k_c3_8 9.0s step-end 1 forwards; }
+.c3_9 { opacity: 0; animation: k_c3_9 9.0s step-end 1 forwards; }
+.c3_10 { opacity: 0; animation: k_c3_10 9.0s step-end 1 forwards; }
+.c3_11 { opacity: 0; animation: k_c3_11 9.0s step-end 1 forwards; }
+.c3_12 { opacity: 0; animation: k_c3_12 9.0s step-end 1 forwards; }
+.c3_13 { opacity: 0; animation: k_c3_13 9.0s step-end 1 forwards; }
+.perm3 { opacity: 0; animation: k_perm3 9.0s step-end 1 forwards; }
+.out3 { opacity: 0; animation: k_out3 9.0s step-end 1 forwards; }
 
-.p4_line { opacity: 0; animation: k_p4 9.2s step-end 1 forwards; }
+.p4_line { opacity: 0; animation: k_p4 9.0s step-end 1 forwards; }
     </style>
     <clipPath id="canvas-clip">
       <rect width="760" height="440" rx="8" />
@@ -222,28 +211,31 @@
       </g>
     </g>
 
-    <!-- Paused Silver Star Glow at (385, 245) with rock-solid (0, 0) origin -->
-    <g transform="translate(385, 245)">
-      <g id="silver-star-glow">
-        <!-- Ambient Silver Halo -->
-        <circle cx="0" cy="0" r="88" fill="url(#silver-aura)" />
+    <!-- Minimal Monochrome Dot-Matrix Flicker at Fingertip Contact (385, 245) -->
+    <g id="dot-flicker">
+      <!-- Soft ambient glow -->
+      <circle cx="385" cy="245" r="16" fill="#e6edf3" opacity="0.22" />
 
-        <!-- Horizontal Silver Anamorphic Streak -->
-        <ellipse cx="0" cy="0" rx="95" ry="1.3" fill="url(#silver-flare)" />
+      <!-- Center contact dot -->
+      <circle cx="385" cy="245" r="1.8" fill="#ffffff" />
 
-        <!-- Secondary Diagonal 4-Point Star (Subtle Silver #c9d1d9) -->
-        <path d="M 0 -22 Q 0 0 22 0 Q 0 0 0 22 Q 0 0 -22 0 Q 0 0 0 -22 Z" fill="#c9d1d9" fill-opacity="0.65" transform="rotate(45)" />
+      <!-- Primary contact zone grid dots (crisp white) -->
+      <circle cx="380" cy="245" r="1.6" fill="#ffffff" />
+      <circle cx="390" cy="245" r="1.6" fill="#ffffff" />
+      <circle cx="385" cy="240" r="1.6" fill="#ffffff" />
+      <circle cx="385" cy="250" r="1.6" fill="#ffffff" />
 
-        <!-- Primary Needle-Sharp 4-Point Silver-White Star (#ffffff) -->
-        <path d="M 0 -57 Q 0 0 57 0 Q 0 0 0 57 Q 0 0 -57 0 Q 0 0 0 -57 Z" fill="#ffffff" />
-
-        <!-- Bright Center Pinpoint -->
-        <circle cx="0" cy="0" r="3.5" fill="#ffffff" />
-      </g>
+      <!-- Neighboring fingertip grid dots (subtle silver) -->
+      <circle cx="380" cy="240" r="1.4" fill="#c9d1d9" />
+      <circle cx="390" cy="240" r="1.4" fill="#c9d1d9" />
+      <circle cx="380" cy="250" r="1.4" fill="#c9d1d9" />
+      <circle cx="390" cy="250" r="1.4" fill="#c9d1d9" />
+      <circle cx="375" cy="245" r="1.4" fill="#c9d1d9" />
+      <circle cx="395" cy="245" r="1.4" fill="#c9d1d9" />
     </g>
   </g>
 
-  <!-- Centered Kitty Window (Materializes Over Paused Glow 2.35s - 2.95s) -->
+  <!-- Centered Kitty Window (Smooth Fade-In 2.20s - 2.75s) -->
   <g id="kitty-window">
     <!-- Window Drop Shadow -->
     <rect x="70" y="36" width="620" height="368" rx="6" fill="none" stroke="#000000" stroke-width="6" stroke-opacity="0.4" />
@@ -354,7 +346,7 @@
         </g>
       </g>
 
-      <!-- Section 4: Final Prompt with Blinking Cursor (8.40s -> forever) -->
+      <!-- Section 4: Final Prompt with Blinking Cursor (8.20s -> forever) -->
       <g class="p4_line">
         <text x="92" y="350"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> </tspan><tspan class="cursor" fill="#e6edf3">&#9608;</tspan></text>
       </g>
