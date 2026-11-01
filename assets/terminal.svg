@@ -20,7 +20,6 @@
       .cursor { animation: blink 1s step-end infinite; }
 
       /* --- Step 1: Hand Choreography --- */
-      /* Left Hand: Stage 1 Intro (0.0s - 3.8s), then Stage 2 Infinite Sway (3.8s+) */
       @keyframes left_intro {
         0% { transform: translate3d(-380px, -18px, 0); }
         58% { transform: translate3d(8px, 8px, 0); }
@@ -42,7 +41,6 @@
         animation: left_sway 5.6s ease-in-out 3.8s infinite both;
       }
 
-      /* Right Hand: Stage 1 Intro (0.0s - 3.8s), then Stage 2 Infinite Sway (4.5s+) */
       @keyframes right_intro {
         0% { transform: translate3d(380px, 18px, 0); }
         58% { transform: translate3d(3px, -7px, 0); }
@@ -73,21 +71,19 @@
       }
       #silver-star-glow {
         opacity: 0;
-        transform-box: view-box;
-        transform-origin: 385px 245px;
+        transform-origin: 0 0;
         will-change: transform, opacity;
         animation: silverBloom 3.0s cubic-bezier(0.16, 1, 0.3, 1) 1 forwards;
       }
 
-      /* --- Step 3: Spawn kitty-window Out of Shockwave (2.35s - 2.95s) --- */
+      /* --- Step 3: Spawn kitty-window (2.35s - 2.95s) --- */
       @keyframes kitty_spawn {
         0% { opacity: 0; transform: scale(0.92); }
         100% { opacity: 1; transform: scale(1.0); }
       }
       #kitty-window {
         opacity: 0;
-        transform-box: view-box;
-        transform-origin: 385px 245px;
+        transform-origin: 380px 220px;
         will-change: transform, opacity;
         animation: kitty_spawn 0.60s cubic-bezier(0.22, 1, 0.36, 1) 2.35s 1 forwards;
       }
@@ -226,22 +222,24 @@
       </g>
     </g>
 
-    <!-- Paused Silver Star Glow at (385, 245) -->
-    <g id="silver-star-glow" style="transform-origin: 385px 245px;">
-      <!-- Ambient Silver Halo -->
-      <circle cx="385" cy="245" r="88" fill="url(#silver-aura)" />
+    <!-- Paused Silver Star Glow at (385, 245) with rock-solid (0, 0) origin -->
+    <g transform="translate(385, 245)">
+      <g id="silver-star-glow">
+        <!-- Ambient Silver Halo -->
+        <circle cx="0" cy="0" r="88" fill="url(#silver-aura)" />
 
-      <!-- Horizontal Silver Anamorphic Streak -->
-      <ellipse cx="385" cy="245" rx="95" ry="1.3" fill="url(#silver-flare)" />
+        <!-- Horizontal Silver Anamorphic Streak -->
+        <ellipse cx="0" cy="0" rx="95" ry="1.3" fill="url(#silver-flare)" />
 
-      <!-- Secondary Diagonal 4-Point Star (Subtle Silver #c9d1d9) -->
-      <path d="M 385 223 Q 385 245 407 245 Q 385 245 385 267 Q 385 245 363 245 Q 385 245 385 223 Z" fill="#c9d1d9" fill-opacity="0.65" transform="rotate(45 385 245)" />
+        <!-- Secondary Diagonal 4-Point Star (Subtle Silver #c9d1d9) -->
+        <path d="M 0 -22 Q 0 0 22 0 Q 0 0 0 22 Q 0 0 -22 0 Q 0 0 0 -22 Z" fill="#c9d1d9" fill-opacity="0.65" transform="rotate(45)" />
 
-      <!-- Primary Needle-Sharp 4-Point Silver-White Star (#ffffff) -->
-      <path d="M 385 188 Q 385 245 442 245 Q 385 245 385 302 Q 385 245 328 245 Q 385 245 385 188 Z" fill="#ffffff" />
+        <!-- Primary Needle-Sharp 4-Point Silver-White Star (#ffffff) -->
+        <path d="M 0 -57 Q 0 0 57 0 Q 0 0 0 57 Q 0 0 -57 0 Q 0 0 0 -57 Z" fill="#ffffff" />
 
-      <!-- Bright Center Pinpoint -->
-      <circle cx="385" cy="245" r="3.5" fill="#ffffff" />
+        <!-- Bright Center Pinpoint -->
+        <circle cx="0" cy="0" r="3.5" fill="#ffffff" />
+      </g>
     </g>
   </g>
 
@@ -275,9 +273,7 @@
       
       <!-- Section 1: cat ~/.profile -->
       <g id="block1">
-        <!-- Prompt 1 idle waiting with blinking cursor (visible on window spawn 2.95s - 3.40s) -->
         <text x="92" y="90" class="p1_idle"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> </tspan><tspan class="cursor" fill="#e6edf3">&#9608;</tspan></text>
-        <!-- Typing frames (3.40s - 4.50s) -->
         <text x="92" y="90" class="c1_0"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> c&#9608;</tspan></text>
         <text x="92" y="90" class="c1_1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> ca&#9608;</tspan></text>
         <text x="92" y="90" class="c1_2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat&#9608;</tspan></text>
@@ -292,9 +288,7 @@
         <text x="92" y="90" class="c1_11"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.profi&#9608;</tspan></text>
         <text x="92" y="90" class="c1_12"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.profil&#9608;</tspan></text>
         <text x="92" y="90" class="c1_13"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.profile&#9608;</tspan></text>
-        <!-- Permanent command (4.50s -> forever) -->
         <text x="92" y="90" class="perm1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.profile</tspan></text>
-        <!-- Output 1 (4.50s -> forever) -->
         <g class="out1">
           <line x1="104" y1="102" x2="104" y2="154" stroke="#252b35" stroke-width="1.5" stroke-linecap="round"/>
           <text x="116" y="112"><tspan fill="#e6edf3">omi (@omi4real) &#8212; linux </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> android systems developer.</tspan></text>
@@ -305,9 +299,7 @@
 
       <!-- Section 2: cat /etc/focus -->
       <g id="block2">
-        <!-- Prompt 2 idle waiting (4.50s - 5.35s) -->
         <text x="92" y="178" class="p2_idle"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> </tspan><tspan class="cursor" fill="#e6edf3">&#9608;</tspan></text>
-        <!-- Typing frames (5.35s - 6.45s) -->
         <text x="92" y="178" class="c2_0"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> c&#9608;</tspan></text>
         <text x="92" y="178" class="c2_1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> ca&#9608;</tspan></text>
         <text x="92" y="178" class="c2_2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat&#9608;</tspan></text>
@@ -322,9 +314,7 @@
         <text x="92" y="178" class="c2_11"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/foc&#9608;</tspan></text>
         <text x="92" y="178" class="c2_12"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/focu&#9608;</tspan></text>
         <text x="92" y="178" class="c2_13"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/focus&#9608;</tspan></text>
-        <!-- Permanent command (6.45s -> forever) -->
         <text x="92" y="178" class="perm2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/focus</tspan></text>
-        <!-- Output 2 (6.45s -> forever) -->
         <g class="out2">
           <line x1="104" y1="188" x2="104" y2="240" stroke="#252b35" stroke-width="1.5" stroke-linecap="round"/>
           <text x="116" y="198"><tspan fill="#79c0ff">[systems]</tspan></text>
@@ -340,9 +330,7 @@
 
       <!-- Section 3: cat /proc/loop -->
       <g id="block3">
-        <!-- Prompt 3 idle waiting (6.45s - 7.30s) -->
         <text x="92" y="264" class="p3_idle"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> </tspan><tspan class="cursor" fill="#e6edf3">&#9608;</tspan></text>
-        <!-- Typing frames (7.30s - 8.40s) -->
         <text x="92" y="264" class="c3_0"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> c&#9608;</tspan></text>
         <text x="92" y="264" class="c3_1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> ca&#9608;</tspan></text>
         <text x="92" y="264" class="c3_2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat&#9608;</tspan></text>
@@ -357,9 +345,7 @@
         <text x="92" y="264" class="c3_11"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/lo&#9608;</tspan></text>
         <text x="92" y="264" class="c3_12"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/loo&#9608;</tspan></text>
         <text x="92" y="264" class="c3_13"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/loop&#9608;</tspan></text>
-        <!-- Permanent command (8.40s -> forever) -->
         <text x="92" y="264" class="perm3"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/loop</tspan></text>
-        <!-- Output 3 (8.40s -> forever) -->
         <g class="out3">
           <line x1="104" y1="274" x2="104" y2="326" stroke="#252b35" stroke-width="1.5" stroke-linecap="round"/>
           <text x="116" y="284"><tspan fill="#ff7b72">while</tspan><tspan fill="#e6edf3"> true; </tspan><tspan fill="#ff7b72">do</tspan></text>

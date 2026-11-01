@@ -1,0 +1,363 @@
+<svg width="100%" height="100%" viewBox="0 0 760 440" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden;">
+  <defs>
+    <!-- Monochrome Silver Gradients for Star Glow -->
+    <radialGradient id="silver-aura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+      <stop offset="22%" stop-color="#e6edf3" stop-opacity="0.55" />
+      <stop offset="55%" stop-color="#8b949e" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#08080a" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="silver-flare" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#e6edf3" stop-opacity="0" />
+      <stop offset="35%" stop-color="#c9d1d9" stop-opacity="0.45" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.95" />
+      <stop offset="65%" stop-color="#c9d1d9" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#e6edf3" stop-opacity="0" />
+    </linearGradient>
+
+    <style>
+      @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+      .cursor { animation: blink 1s step-end infinite; }
+
+      /* --- Step 1: Hand Choreography --- */
+      @keyframes left_intro {
+        0% { transform: translate3d(-380px, -18px, 0); }
+        58% { transform: translate3d(8px, 8px, 0); }
+        71% { transform: translate3d(8px, 8px, 0); }
+        100% { transform: translate3d(-24px, 0px, 0); }
+      }
+      @keyframes left_sway {
+        0%, 100% { transform: translate3d(0px, 0px, 0); }
+        25% { transform: translate3d(6px, -14px, 0); }
+        50% { transform: translate3d(-5px, 4px, 0); }
+        75% { transform: translate3d(4px, 14px, 0); }
+      }
+      #left-hand-intro {
+        will-change: transform;
+        animation: left_intro 3.8s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
+      }
+      #left-hand-sway {
+        will-change: transform;
+        animation: left_sway 5.6s ease-in-out 3.8s infinite both;
+      }
+
+      @keyframes right_intro {
+        0% { transform: translate3d(380px, 18px, 0); }
+        58% { transform: translate3d(3px, -7px, 0); }
+        71% { transform: translate3d(3px, -7px, 0); }
+        100% { transform: translate3d(24px, 0px, 0); }
+      }
+      @keyframes right_sway {
+        0%, 100% { transform: translate3d(0px, 0px, 0); }
+        25% { transform: translate3d(-6px, 14px, 0); }
+        50% { transform: translate3d(5px, -4px, 0); }
+        75% { transform: translate3d(-4px, -14px, 0); }
+      }
+      #right-hand-intro {
+        will-change: transform;
+        animation: right_intro 3.8s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
+      }
+      #right-hand-sway {
+        will-change: transform;
+        animation: right_sway 5.6s ease-in-out 4.5s infinite both;
+      }
+
+      /* --- Step 2: Monochrome Silver Star Glow at (385, 245) --- */
+      @keyframes silverBloom {
+        0%, 72% { opacity: 0; transform: scale(0.12); }
+        74% { opacity: 1; transform: scale(0.55); }
+        85% { opacity: 1; transform: scale(1.0); }
+        100% { opacity: 0.55; transform: scale(1.0); }
+      }
+      #silver-star-glow {
+        opacity: 0;
+        transform-origin: 0 0;
+        will-change: transform, opacity;
+        animation: silverBloom 3.0s cubic-bezier(0.16, 1, 0.3, 1) 1 forwards;
+      }
+
+      /* --- Step 3: Spawn kitty-window (2.35s - 2.95s) --- */
+      @keyframes kitty_spawn {
+        0% { opacity: 0; transform: scale(0.92); }
+        100% { opacity: 1; transform: scale(1.0); }
+      }
+      #kitty-window {
+        opacity: 0;
+        transform-origin: 380px 220px;
+        will-change: transform, opacity;
+        animation: kitty_spawn 0.60s cubic-bezier(0.22, 1, 0.36, 1) 2.35s 1 forwards;
+      }
+
+      /* Terminal Typing Keyframes (9.2s Choreography) */
+@keyframes k_p1_idle { 0%, 32.06% { opacity: 0; } 32.07%, 36.95% { opacity: 1; } 36.96%, 100% { opacity: 0; } }
+@keyframes k_c1_0 { 0%, 36.95% { opacity: 0; } 36.96%, 37.80% { opacity: 1; } 37.81%, 100% { opacity: 0; } }
+@keyframes k_c1_1 { 0%, 37.80% { opacity: 0; } 37.81%, 38.65% { opacity: 1; } 38.66%, 100% { opacity: 0; } }
+@keyframes k_c1_2 { 0%, 38.65% { opacity: 0; } 38.66%, 39.51% { opacity: 1; } 39.52%, 100% { opacity: 0; } }
+@keyframes k_c1_3 { 0%, 39.51% { opacity: 0; } 39.52%, 40.36% { opacity: 1; } 40.37%, 100% { opacity: 0; } }
+@keyframes k_c1_4 { 0%, 40.36% { opacity: 0; } 40.37%, 41.22% { opacity: 1; } 41.23%, 100% { opacity: 0; } }
+@keyframes k_c1_5 { 0%, 41.22% { opacity: 0; } 41.23%, 42.07% { opacity: 1; } 42.08%, 100% { opacity: 0; } }
+@keyframes k_c1_6 { 0%, 42.07% { opacity: 0; } 42.08%, 42.92% { opacity: 1; } 42.93%, 100% { opacity: 0; } }
+@keyframes k_c1_7 { 0%, 42.92% { opacity: 0; } 42.93%, 43.78% { opacity: 1; } 43.79%, 100% { opacity: 0; } }
+@keyframes k_c1_8 { 0%, 43.78% { opacity: 0; } 43.79%, 44.63% { opacity: 1; } 44.64%, 100% { opacity: 0; } }
+@keyframes k_c1_9 { 0%, 44.63% { opacity: 0; } 44.64%, 45.49% { opacity: 1; } 45.50%, 100% { opacity: 0; } }
+@keyframes k_c1_10 { 0%, 45.49% { opacity: 0; } 45.50%, 46.34% { opacity: 1; } 46.35%, 100% { opacity: 0; } }
+@keyframes k_c1_11 { 0%, 46.34% { opacity: 0; } 46.35%, 47.19% { opacity: 1; } 47.20%, 100% { opacity: 0; } }
+@keyframes k_c1_12 { 0%, 47.19% { opacity: 0; } 47.20%, 48.05% { opacity: 1; } 48.06%, 100% { opacity: 0; } }
+@keyframes k_c1_13 { 0%, 48.05% { opacity: 0; } 48.06%, 48.90% { opacity: 1; } 48.91%, 100% { opacity: 0; } }
+@keyframes k_perm1 { 0%, 48.90% { opacity: 0; } 48.91%, 100% { opacity: 1; } }
+@keyframes k_out1 { 0%, 48.90% { opacity: 0; } 48.91%, 100% { opacity: 1; } }
+@keyframes k_p2_idle { 0%, 48.90% { opacity: 0; } 48.91%, 58.14% { opacity: 1; } 58.15%, 100% { opacity: 0; } }
+@keyframes k_c2_0 { 0%, 58.14% { opacity: 0; } 58.15%, 59.00% { opacity: 1; } 59.01%, 100% { opacity: 0; } }
+@keyframes k_c2_1 { 0%, 59.00% { opacity: 0; } 59.01%, 59.85% { opacity: 1; } 59.86%, 100% { opacity: 0; } }
+@keyframes k_c2_2 { 0%, 59.85% { opacity: 0; } 59.86%, 60.70% { opacity: 1; } 60.71%, 100% { opacity: 0; } }
+@keyframes k_c2_3 { 0%, 60.70% { opacity: 0; } 60.71%, 61.56% { opacity: 1; } 61.57%, 100% { opacity: 0; } }
+@keyframes k_c2_4 { 0%, 61.56% { opacity: 0; } 61.57%, 62.41% { opacity: 1; } 62.42%, 100% { opacity: 0; } }
+@keyframes k_c2_5 { 0%, 62.41% { opacity: 0; } 62.42%, 63.27% { opacity: 1; } 63.28%, 100% { opacity: 0; } }
+@keyframes k_c2_6 { 0%, 63.27% { opacity: 0; } 63.28%, 64.12% { opacity: 1; } 64.13%, 100% { opacity: 0; } }
+@keyframes k_c2_7 { 0%, 64.12% { opacity: 0; } 64.13%, 64.97% { opacity: 1; } 64.98%, 100% { opacity: 0; } }
+@keyframes k_c2_8 { 0%, 64.97% { opacity: 0; } 64.98%, 65.83% { opacity: 1; } 65.84%, 100% { opacity: 0; } }
+@keyframes k_c2_9 { 0%, 65.83% { opacity: 0; } 65.84%, 66.68% { opacity: 1; } 66.69%, 100% { opacity: 0; } }
+@keyframes k_c2_10 { 0%, 66.68% { opacity: 0; } 66.69%, 67.54% { opacity: 1; } 67.55%, 100% { opacity: 0; } }
+@keyframes k_c2_11 { 0%, 67.54% { opacity: 0; } 67.55%, 68.39% { opacity: 1; } 68.40%, 100% { opacity: 0; } }
+@keyframes k_c2_12 { 0%, 68.39% { opacity: 0; } 68.40%, 69.24% { opacity: 1; } 69.25%, 100% { opacity: 0; } }
+@keyframes k_c2_13 { 0%, 69.24% { opacity: 0; } 69.25%, 70.10% { opacity: 1; } 70.11%, 100% { opacity: 0; } }
+@keyframes k_perm2 { 0%, 70.10% { opacity: 0; } 70.11%, 100% { opacity: 1; } }
+@keyframes k_out2 { 0%, 70.10% { opacity: 0; } 70.11%, 100% { opacity: 1; } }
+@keyframes k_p3_idle { 0%, 70.10% { opacity: 0; } 70.11%, 79.34% { opacity: 1; } 79.35%, 100% { opacity: 0; } }
+@keyframes k_c3_0 { 0%, 79.34% { opacity: 0; } 79.35%, 80.19% { opacity: 1; } 80.20%, 100% { opacity: 0; } }
+@keyframes k_c3_1 { 0%, 80.19% { opacity: 0; } 80.20%, 81.05% { opacity: 1; } 81.06%, 100% { opacity: 0; } }
+@keyframes k_c3_2 { 0%, 81.05% { opacity: 0; } 81.06%, 81.90% { opacity: 1; } 81.91%, 100% { opacity: 0; } }
+@keyframes k_c3_3 { 0%, 81.90% { opacity: 0; } 81.91%, 82.75% { opacity: 1; } 82.76%, 100% { opacity: 0; } }
+@keyframes k_c3_4 { 0%, 82.75% { opacity: 0; } 82.76%, 83.61% { opacity: 1; } 83.62%, 100% { opacity: 0; } }
+@keyframes k_c3_5 { 0%, 83.61% { opacity: 0; } 83.62%, 84.46% { opacity: 1; } 84.47%, 100% { opacity: 0; } }
+@keyframes k_c3_6 { 0%, 84.46% { opacity: 0; } 84.47%, 85.32% { opacity: 1; } 85.33%, 100% { opacity: 0; } }
+@keyframes k_c3_7 { 0%, 85.32% { opacity: 0; } 85.33%, 86.17% { opacity: 1; } 86.18%, 100% { opacity: 0; } }
+@keyframes k_c3_8 { 0%, 86.17% { opacity: 0; } 86.18%, 87.02% { opacity: 1; } 87.03%, 100% { opacity: 0; } }
+@keyframes k_c3_9 { 0%, 87.02% { opacity: 0; } 87.03%, 87.88% { opacity: 1; } 87.89%, 100% { opacity: 0; } }
+@keyframes k_c3_10 { 0%, 87.88% { opacity: 0; } 87.89%, 88.73% { opacity: 1; } 88.74%, 100% { opacity: 0; } }
+@keyframes k_c3_11 { 0%, 88.73% { opacity: 0; } 88.74%, 89.59% { opacity: 1; } 89.60%, 100% { opacity: 0; } }
+@keyframes k_c3_12 { 0%, 89.59% { opacity: 0; } 89.60%, 90.44% { opacity: 1; } 90.45%, 100% { opacity: 0; } }
+@keyframes k_c3_13 { 0%, 90.44% { opacity: 0; } 90.45%, 91.29% { opacity: 1; } 91.30%, 100% { opacity: 0; } }
+@keyframes k_perm3 { 0%, 91.29% { opacity: 0; } 91.30%, 100% { opacity: 1; } }
+@keyframes k_out3 { 0%, 91.29% { opacity: 0; } 91.30%, 100% { opacity: 1; } }
+@keyframes k_p4 { 0%, 91.29% { opacity: 0; } 91.30%, 100% { opacity: 1; } }
+
+.p1_idle { opacity: 0; animation: k_p1_idle 9.2s step-end 1 forwards; }
+.c1_0 { opacity: 0; animation: k_c1_0 9.2s step-end 1 forwards; }
+.c1_1 { opacity: 0; animation: k_c1_1 9.2s step-end 1 forwards; }
+.c1_2 { opacity: 0; animation: k_c1_2 9.2s step-end 1 forwards; }
+.c1_3 { opacity: 0; animation: k_c1_3 9.2s step-end 1 forwards; }
+.c1_4 { opacity: 0; animation: k_c1_4 9.2s step-end 1 forwards; }
+.c1_5 { opacity: 0; animation: k_c1_5 9.2s step-end 1 forwards; }
+.c1_6 { opacity: 0; animation: k_c1_6 9.2s step-end 1 forwards; }
+.c1_7 { opacity: 0; animation: k_c1_7 9.2s step-end 1 forwards; }
+.c1_8 { opacity: 0; animation: k_c1_8 9.2s step-end 1 forwards; }
+.c1_9 { opacity: 0; animation: k_c1_9 9.2s step-end 1 forwards; }
+.c1_10 { opacity: 0; animation: k_c1_10 9.2s step-end 1 forwards; }
+.c1_11 { opacity: 0; animation: k_c1_11 9.2s step-end 1 forwards; }
+.c1_12 { opacity: 0; animation: k_c1_12 9.2s step-end 1 forwards; }
+.c1_13 { opacity: 0; animation: k_c1_13 9.2s step-end 1 forwards; }
+.perm1 { opacity: 0; animation: k_perm1 9.2s step-end 1 forwards; }
+.out1 { opacity: 0; animation: k_out1 9.2s step-end 1 forwards; }
+
+.p2_idle { opacity: 0; animation: k_p2_idle 9.2s step-end 1 forwards; }
+.c2_0 { opacity: 0; animation: k_c2_0 9.2s step-end 1 forwards; }
+.c2_1 { opacity: 0; animation: k_c2_1 9.2s step-end 1 forwards; }
+.c2_2 { opacity: 0; animation: k_c2_2 9.2s step-end 1 forwards; }
+.c2_3 { opacity: 0; animation: k_c2_3 9.2s step-end 1 forwards; }
+.c2_4 { opacity: 0; animation: k_c2_4 9.2s step-end 1 forwards; }
+.c2_5 { opacity: 0; animation: k_c2_5 9.2s step-end 1 forwards; }
+.c2_6 { opacity: 0; animation: k_c2_6 9.2s step-end 1 forwards; }
+.c2_7 { opacity: 0; animation: k_c2_7 9.2s step-end 1 forwards; }
+.c2_8 { opacity: 0; animation: k_c2_8 9.2s step-end 1 forwards; }
+.c2_9 { opacity: 0; animation: k_c2_9 9.2s step-end 1 forwards; }
+.c2_10 { opacity: 0; animation: k_c2_10 9.2s step-end 1 forwards; }
+.c2_11 { opacity: 0; animation: k_c2_11 9.2s step-end 1 forwards; }
+.c2_12 { opacity: 0; animation: k_c2_12 9.2s step-end 1 forwards; }
+.c2_13 { opacity: 0; animation: k_c2_13 9.2s step-end 1 forwards; }
+.perm2 { opacity: 0; animation: k_perm2 9.2s step-end 1 forwards; }
+.out2 { opacity: 0; animation: k_out2 9.2s step-end 1 forwards; }
+
+.p3_idle { opacity: 0; animation: k_p3_idle 9.2s step-end 1 forwards; }
+.c3_0 { opacity: 0; animation: k_c3_0 9.2s step-end 1 forwards; }
+.c3_1 { opacity: 0; animation: k_c3_1 9.2s step-end 1 forwards; }
+.c3_2 { opacity: 0; animation: k_c3_2 9.2s step-end 1 forwards; }
+.c3_3 { opacity: 0; animation: k_c3_3 9.2s step-end 1 forwards; }
+.c3_4 { opacity: 0; animation: k_c3_4 9.2s step-end 1 forwards; }
+.c3_5 { opacity: 0; animation: k_c3_5 9.2s step-end 1 forwards; }
+.c3_6 { opacity: 0; animation: k_c3_6 9.2s step-end 1 forwards; }
+.c3_7 { opacity: 0; animation: k_c3_7 9.2s step-end 1 forwards; }
+.c3_8 { opacity: 0; animation: k_c3_8 9.2s step-end 1 forwards; }
+.c3_9 { opacity: 0; animation: k_c3_9 9.2s step-end 1 forwards; }
+.c3_10 { opacity: 0; animation: k_c3_10 9.2s step-end 1 forwards; }
+.c3_11 { opacity: 0; animation: k_c3_11 9.2s step-end 1 forwards; }
+.c3_12 { opacity: 0; animation: k_c3_12 9.2s step-end 1 forwards; }
+.c3_13 { opacity: 0; animation: k_c3_13 9.2s step-end 1 forwards; }
+.perm3 { opacity: 0; animation: k_perm3 9.2s step-end 1 forwards; }
+.out3 { opacity: 0; animation: k_out3 9.2s step-end 1 forwards; }
+
+.p4_line { opacity: 0; animation: k_p4 9.2s step-end 1 forwards; }
+    </style>
+    <clipPath id="canvas-clip">
+      <rect width="760" height="440" rx="8" />
+    </clipPath>
+  </defs>
+
+  <!-- Outer Viewport Base -->
+  <rect width="760" height="440" rx="8" fill="#08080a" stroke="#1f242c" stroke-width="1" />
+
+  <!-- Background Live Wallpaper: Clean Clipped Canvas -->
+  <g clip-path="url(#canvas-clip)" style="overflow: hidden;">
+    <!-- Left Hand Group (Stage 1 Intro + Stage 2 Infinite Sway) -->
+    <g id="left-hand-intro">
+      <g id="left-hand-sway">
+        <image href="data:image/png;base64,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" xlink:href="data:image/png;base64,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" x="0" y="25" width="379" height="389" />
+      </g>
+    </g>
+
+    <!-- Right Hand Group (Stage 1 Intro + Stage 2 Infinite Sway) -->
+    <g id="right-hand-intro">
+      <g id="right-hand-sway">
+        <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXsAAAC4CAMAAAA167yXAAAAwFBMVEUAAADQ197Q197Q197Q197Q197Q197Q194AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSfLaIAAAAQHRSTlMAMEywc48WxwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAm3WK5gAAB99JREFUeNrtXWtz2zAMW1/r///H86nX44oCNJnGlhsBH3hJZispR0F8Sf7zx7gr/v7dxNPT7qshjPuqflPv04adV0MY1r05xzAub9khworhbUEYNzB6iGBveFsQhnVvzjGMud5hwUWUbuMQz8/fX9nuK1FRITSS4dIQzxvwlfneujfnmHOMC3iHYcByBsBtfX9ybbuXUVEQt2R+uK0fRy3O99a9OcdrrXGWx8gcPngLRp1bthw+hPyiR7f7PORhb4HMc0aXw4eQX/TwfG/dm3NW5BzjJHtmXmTL12tZsUzbSCHH+/08zqKnVozTYm+ZrpRCjmfdW/fmHMOomDykWWTCReZu2Nthk6+vu6Yc11UvZrPnt1I9pBdlolHmLNnbwcWvG3YoPK6rXsxWDeveujfnGL9/RQxxn1EKVpx7lgVnkdlzQbCZkueRDrN7IN/7jFJg7zyiKgRJjMcLgq0Qef70OL637ufp3pwzj3OMMx2+PBmSm0CrXlFIwrTsvmXob2+7l7AvOqInsNAMWqC+Vp2ukHxs8X2L4N827FzCvuiQXljrfp7uzTnzOMc4PUqVKZX4T5bmCCUDNh6zEhg+LqnOlDwdA/bc9zFZPqfgXu474DLGYSQ9yE3SMJTK2HiMHWH4uKS6QuRpSODxfmzF8piFsKoQeFr383RvzpnHOcbsoFVaGLOh3KuSdt8v8re2dsfvG+Ll5VMUfMeqkB5tp3bCQp48hAruzKMJyff95pbWkQbx+4Z42fAhCjFTVchIrlUztO7n6d6cM49zjDmQdiW9L7Cm3JDA7uOLpOsXwxdmlEwhxVDv758ijJ/9MdUJ0WpMSH1Myacy6gAWzQkU+D6+SIY8MXxhJZGp0xjqfcOHCNJnf0x1IWg15OSxlXU/T/fmnHmcY0xEeGTMvME3G6+YIUkxhooZFTYZJgpfNERkithsBGtiHh4bNH5zPmuhE6HfCVj0MSMSYbQOMcl4xQhUijFUrCTBxUHN8EVDRIaUrULAoiyyYYPGb85XK+jA6XfAVmMr636e7s058zjHOH1xZZ/l2Y9CrWNcx4xfOq7jLXxbqxeC5VBg1sY0hQkLniV4m0zI4ktRSNLPs36FGt+4jpG+DNjGW/i2Vg8Qyx3CahXLEyxUEFFBlMWELDq26N+6n6J7c848zjEmYvxvnVb/zfsAwCcM25BNDazxHYwrdy+ZYBkqafLyuv000GCpw1W/mw1lAdYHJ6bNPGzDB5BqHlYxwTKzkurlddXtKtb9FN2bc+ZxjrFgKM3MEfxYmcAJe4aiSsHkmfHDNMhv65dXpJih+s/QTbIt5DtZHw8rJhaonpE+0H9+W7+sKIV1v5TuzTnzOMe4zoLLKhd5Fz/kfQqlnlxIl5P9A/vsxmkwTfXfc6VA9fkuEtZeI0ucuZChFvsH9tmN9G/dr6d7c46XnXVz11CLydM2rAhSdQxz2wVvk1VWcmsvlFeYmKb6LwU3uZUEMp9Q/KsGRDlnQ5TFKoo5yxfKikxY9+vp3pzjZWchQCcgdPuzvr5CTqbalcisXd6bm3zV7sF/httOVv2XDljY5cL6WQu5yGo3LmN5eW9O9VW+h7gRbrPuV9G9Ocdr7brLbH7OSavq8RPjZ6Pkm+Wq/QxsVrDfcj7V5+f7tKp9PyF9Nkq+SbTax8NWA/ZbrPsFdG/Omcc5xuwVVrbvRcam0KUnsy6tSRJvoQMx/2PYXMhtXH52KsvLttXIVBa6U2W2sbU4xFvovM3/GLYG5NwuP7PuH1b35px5nGPMQf8RF2y7N5skeQ+BLH2wGRBdETciP4Ym95UPVH330S7smAO2OOS9M7Lkx5g/uoFuVn12/FIeI1r3j6h7c848zjGuky+WqRzoPwBTgcPFwbljc6bQYXDGdjM4qYZN9rNyljKFCX03QJFwqD4ENWytKHTW/LfN8tioUoaWx/XCWvfzdG/Omcc5xiXiWmn3zBmDQ8nA+OV0kc/SkKmhRz8ZNOd7FoTAKQ9A+nKZkM+QkSnRnwRT1r11b84xDJrpkI30rDMdOgHDWcwPCo2pEffCxInhlzB52eYij5uHDtgIkvIDcmNJiHthwYjhH5/qrXtzzqqcY1wnpQypF7D2MGVoR4BJEtkZuINdzLbSLaf67a+GlCOwfFA4tOHA4hBZSbiDXcy2kFr31r05xzCO9jZZriWv6sNpLsz5ZP0H9icxymI5xrybBU4xYkEX67tZLo6y7s055hzjipkdSLMwz5KZPNsEF0UQJgzMaEJ6kUVUjOrZ5s8o/jFhWPfmHMOYAelKQnNBfAb3skSPn8ZYU70IoaCpJj6De1mCkz6F1LDuzTmGMd/uWZcey9PAU63gtiiRGGW+Z92pLD8JT3OD26I0aFj35hzDuBTkY5xZXx/0xsNzsKJEYveypnrx+HLWzwp7QuD5b1EadFhl3ZtzDOPKdg+OJquEgD2H3UN7g6sjPb6HAItVAIHHg++hrcdVQevenGMYFwXrU4AWBbbdmx2AYrvvqv57fw605rBjDtjBP+Z7696cYxhXRhzBku8DZ/4pHN/CfFEjU/3n0UP5+QcsLoNji1gMZlj35hzDuJSPWThzRd7mMz1/FFsVzhqSt51ylq11b92bcwzjjnYvt5RLtxH2ujmVcyvfy6MUZLgEezydwrTuzTmGcWXAeWnsbHDjKNV/OSeQnYlvWPfmnDXwD2UD0fWXPxzQAAAAAElFTkSuQmCC" xlink:href="data:image/png;base64,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" x="380" y="185" width="379" height="184" />
+      </g>
+    </g>
+
+    <!-- Paused Silver Star Glow at (385, 245) with rock-solid (0, 0) origin -->
+    <g transform="translate(385, 245)">
+      <g id="silver-star-glow">
+        <!-- Ambient Silver Halo -->
+        <circle cx="0" cy="0" r="88" fill="url(#silver-aura)" />
+
+        <!-- Horizontal Silver Anamorphic Streak -->
+        <ellipse cx="0" cy="0" rx="95" ry="1.3" fill="url(#silver-flare)" />
+
+        <!-- Secondary Diagonal 4-Point Star (Subtle Silver #c9d1d9) -->
+        <path d="M 0 -22 Q 0 0 22 0 Q 0 0 0 22 Q 0 0 -22 0 Q 0 0 0 -22 Z" fill="#c9d1d9" fill-opacity="0.65" transform="rotate(45)" />
+
+        <!-- Primary Needle-Sharp 4-Point Silver-White Star (#ffffff) -->
+        <path d="M 0 -57 Q 0 0 57 0 Q 0 0 0 57 Q 0 0 -57 0 Q 0 0 0 -57 Z" fill="#ffffff" />
+
+        <!-- Bright Center Pinpoint -->
+        <circle cx="0" cy="0" r="3.5" fill="#ffffff" />
+      </g>
+    </g>
+  </g>
+
+  <!-- Centered Kitty Window (Materializes Over Paused Glow 2.35s - 2.95s) -->
+  <g id="kitty-window">
+    <!-- Window Drop Shadow -->
+    <rect x="70" y="36" width="620" height="368" rx="6" fill="none" stroke="#000000" stroke-width="6" stroke-opacity="0.4" />
+
+    <!-- Frosted Glass Backing -->
+    <rect x="70" y="36" width="620" height="368" rx="6" fill="#0c0d12" fill-opacity="0.78" stroke="#2d333b" stroke-width="1" />
+
+    <!-- Window Titlebar -->
+    <path d="M 70 42 A 6 6 0 0 1 76 36 L 684 36 A 6 6 0 0 1 690 42 L 690 62 L 70 62 Z" fill="#161b22" fill-opacity="0.9" stroke="#2d333b" stroke-width="1" />
+    <line x1="70" y1="62" x2="690" y2="62" stroke="#2d333b" stroke-width="1" />
+
+    <!-- Titlebar Title -->
+    <text x="84" y="53" fill="#c9d1d9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12px" font-weight="bold">kitty</text>
+
+    <!-- Retro Window Control Icons -->
+    <g stroke="#8b949e" fill="none">
+      <rect x="630" y="41" width="16" height="16" />
+      <line x1="634" y1="51" x2="642" y2="51" stroke-width="1.5" />
+      <rect x="648" y="41" width="16" height="16" />
+      <rect x="649" y="44" width="10" height="9" />
+      <rect x="666" y="41" width="16" height="16" />
+      <path d="M670 45 L678 53 M678 45 L670 53" stroke-width="1.2" />
+    </g>
+
+    <!-- Terminal Content Area -->
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13px" xml:space="preserve">
+      
+      <!-- Section 1: cat ~/.profile -->
+      <g id="block1">
+        <text x="92" y="90" class="p1_idle"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> </tspan><tspan class="cursor" fill="#e6edf3">&#9608;</tspan></text>
+        <text x="92" y="90" class="c1_0"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> c&#9608;</tspan></text>
+        <text x="92" y="90" class="c1_1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> ca&#9608;</tspan></text>
+        <text x="92" y="90" class="c1_2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat&#9608;</tspan></text>
+        <text x="92" y="90" class="c1_3"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat &#9608;</tspan></text>
+        <text x="92" y="90" class="c1_4"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~&#9608;</tspan></text>
+        <text x="92" y="90" class="c1_5"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/&#9608;</tspan></text>
+        <text x="92" y="90" class="c1_6"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.&#9608;</tspan></text>
+        <text x="92" y="90" class="c1_7"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.p&#9608;</tspan></text>
+        <text x="92" y="90" class="c1_8"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.pr&#9608;</tspan></text>
+        <text x="92" y="90" class="c1_9"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.pro&#9608;</tspan></text>
+        <text x="92" y="90" class="c1_10"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.prof&#9608;</tspan></text>
+        <text x="92" y="90" class="c1_11"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.profi&#9608;</tspan></text>
+        <text x="92" y="90" class="c1_12"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.profil&#9608;</tspan></text>
+        <text x="92" y="90" class="c1_13"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.profile&#9608;</tspan></text>
+        <text x="92" y="90" class="perm1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.profile</tspan></text>
+        <g class="out1">
+          <line x1="104" y1="102" x2="104" y2="154" stroke="#252b35" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="116" y="112"><tspan fill="#e6edf3">omi (@omi4real) &#8212; linux </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> android systems developer.</tspan></text>
+          <text x="116" y="132"><tspan fill="#e6edf3">living </tspan><tspan fill="#ff7b72">in</tspan><tspan fill="#e6edf3"> open terminals: testing, debugging </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> fixing</tspan></text>
+          <text x="116" y="152"><tspan fill="#e6edf3">software across the framework </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> kernel layers.</tspan></text>
+        </g>
+      </g>
+
+      <!-- Section 2: cat /etc/focus -->
+      <g id="block2">
+        <text x="92" y="178" class="p2_idle"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> </tspan><tspan class="cursor" fill="#e6edf3">&#9608;</tspan></text>
+        <text x="92" y="178" class="c2_0"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> c&#9608;</tspan></text>
+        <text x="92" y="178" class="c2_1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> ca&#9608;</tspan></text>
+        <text x="92" y="178" class="c2_2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat&#9608;</tspan></text>
+        <text x="92" y="178" class="c2_3"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat &#9608;</tspan></text>
+        <text x="92" y="178" class="c2_4"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /&#9608;</tspan></text>
+        <text x="92" y="178" class="c2_5"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /e&#9608;</tspan></text>
+        <text x="92" y="178" class="c2_6"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /et&#9608;</tspan></text>
+        <text x="92" y="178" class="c2_7"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc&#9608;</tspan></text>
+        <text x="92" y="178" class="c2_8"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/&#9608;</tspan></text>
+        <text x="92" y="178" class="c2_9"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/f&#9608;</tspan></text>
+        <text x="92" y="178" class="c2_10"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/fo&#9608;</tspan></text>
+        <text x="92" y="178" class="c2_11"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/foc&#9608;</tspan></text>
+        <text x="92" y="178" class="c2_12"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/focu&#9608;</tspan></text>
+        <text x="92" y="178" class="c2_13"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/focus&#9608;</tspan></text>
+        <text x="92" y="178" class="perm2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/focus</tspan></text>
+        <g class="out2">
+          <line x1="104" y1="188" x2="104" y2="240" stroke="#252b35" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="116" y="198"><tspan fill="#79c0ff">[systems]</tspan></text>
+          <text x="220" y="198"><tspan fill="#e6edf3">linux, shell scripting </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> cli automation</tspan></text>
+
+          <text x="116" y="218"><tspan fill="#79c0ff">[android]</tspan></text>
+          <text x="220" y="218"><tspan fill="#e6edf3">rom development, ports </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> modules</tspan></text>
+
+          <text x="116" y="238"><tspan fill="#79c0ff">[low-level]</tspan></text>
+          <text x="220" y="238"><tspan fill="#e6edf3">log analysis, debugging </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> system patching</tspan></text>
+        </g>
+      </g>
+
+      <!-- Section 3: cat /proc/loop -->
+      <g id="block3">
+        <text x="92" y="264" class="p3_idle"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> </tspan><tspan class="cursor" fill="#e6edf3">&#9608;</tspan></text>
+        <text x="92" y="264" class="c3_0"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> c&#9608;</tspan></text>
+        <text x="92" y="264" class="c3_1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> ca&#9608;</tspan></text>
+        <text x="92" y="264" class="c3_2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat&#9608;</tspan></text>
+        <text x="92" y="264" class="c3_3"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat &#9608;</tspan></text>
+        <text x="92" y="264" class="c3_4"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /&#9608;</tspan></text>
+        <text x="92" y="264" class="c3_5"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /p&#9608;</tspan></text>
+        <text x="92" y="264" class="c3_6"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /pr&#9608;</tspan></text>
+        <text x="92" y="264" class="c3_7"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /pro&#9608;</tspan></text>
+        <text x="92" y="264" class="c3_8"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc&#9608;</tspan></text>
+        <text x="92" y="264" class="c3_9"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/&#9608;</tspan></text>
+        <text x="92" y="264" class="c3_10"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/l&#9608;</tspan></text>
+        <text x="92" y="264" class="c3_11"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/lo&#9608;</tspan></text>
+        <text x="92" y="264" class="c3_12"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/loo&#9608;</tspan></text>
+        <text x="92" y="264" class="c3_13"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/loop&#9608;</tspan></text>
+        <text x="92" y="264" class="perm3"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/loop</tspan></text>
+        <g class="out3">
+          <line x1="104" y1="274" x2="104" y2="326" stroke="#252b35" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="116" y="284"><tspan fill="#ff7b72">while</tspan><tspan fill="#e6edf3"> true; </tspan><tspan fill="#ff7b72">do</tspan></text>
+          <text x="140" y="304"><tspan fill="#e6edf3">test </tspan><tspan fill="#ff7b72">||</tspan><tspan fill="#e6edf3"> debug </tspan><tspan fill="#ff7b72">&amp;&amp;</tspan><tspan fill="#e6edf3"> fix</tspan></text>
+          <text x="116" y="324"><tspan fill="#ff7b72">done</tspan></text>
+        </g>
+      </g>
+
+      <!-- Section 4: Final Prompt with Blinking Cursor (8.40s -> forever) -->
+      <g class="p4_line">
+        <text x="92" y="350"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> </tspan><tspan class="cursor" fill="#e6edf3">&#9608;</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>
