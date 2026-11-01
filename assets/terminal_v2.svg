@@ -23,50 +23,30 @@
         animation: right_intro 2.2s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
       }
 
-      /* --- Step 2: Infinite Sway + Periodic Touch Loop (2.2s -> forever) --- */
+      /* --- Step 2: Infinite Wallpaper Sway (2.2s -> forever, NO touch, organic drift) --- */
       @keyframes left_sway {
-        0% { transform: translate3d(0px, 0px, 0); }
-        18% { transform: translate3d(-16px, -14px, 0); }
-        35% { transform: translate3d(-8px, 12px, 0); }
-        50% { transform: translate3d(8px, 8px, 0); }
-        62% { transform: translate3d(-18px, -6px, 0); }
-        82% { transform: translate3d(-6px, 14px, 0); }
-        100% { transform: translate3d(0px, 0px, 0); }
+        0%, 100% { transform: translate3d(-10px, -8px, 0); }
+        25% { transform: translate3d(6px, 10px, 0); }
+        50% { transform: translate3d(-4px, -12px, 0); }
+        75% { transform: translate3d(8px, 6px, 0); }
       }
       #left-hand-sway {
         will-change: transform;
-        animation: left_sway 9.0s ease-in-out 2.2s infinite both;
+        animation: left_sway 8.0s ease-in-out 2.2s infinite both;
       }
 
       @keyframes right_sway {
-        0% { transform: translate3d(0px, 0px, 0); }
-        22% { transform: translate3d(16px, 14px, 0); }
-        38% { transform: translate3d(10px, -12px, 0); }
-        50% { transform: translate3d(3px, -7px, 0); }
-        62% { transform: translate3d(20px, 8px, 0); }
-        80% { transform: translate3d(8px, -14px, 0); }
-        100% { transform: translate3d(0px, 0px, 0); }
+        0%, 100% { transform: translate3d(10px, 8px, 0); }
+        25% { transform: translate3d(-6px, -10px, 0); }
+        50% { transform: translate3d(4px, 12px, 0); }
+        75% { transform: translate3d(-8px, -6px, 0); }
       }
       #right-hand-sway {
         will-change: transform;
-        animation: right_sway 9.0s ease-in-out 2.2s infinite both;
+        animation: right_sway 8.0s ease-in-out 2.2s infinite both;
       }
 
-      /* --- Step 3: Minimal Monochrome Dot-Matrix Flicker (Synced to 9.0s Touch Loop) --- */
-      @keyframes dotFlicker {
-        0%, 48.0% { opacity: 0; }
-        48.5% { opacity: 0.95; }
-        49.8% { opacity: 0.35; }
-        50.8% { opacity: 1.0; }
-        52.5%, 100% { opacity: 0; }
-      }
-      #dot-flicker {
-        opacity: 0;
-        will-change: opacity;
-        animation: dotFlicker 9.0s step-end 2.2s infinite;
-      }
-
-      /* --- Kitty Window Fade-In (2.20s - 2.75s) --- */
+      /* --- Step 3: Kitty Window Smooth Fade-In (2.20s - 2.75s) --- */
       @keyframes kitty_fade {
         0% { opacity: 0; }
         100% { opacity: 1; }
@@ -75,6 +55,20 @@
         opacity: 0;
         will-change: opacity;
         animation: kitty_fade 0.55s cubic-bezier(0.22, 1, 0.36, 1) 2.20s 1 forwards;
+      }
+
+      /* Large, High-Legibility Typography Rules */
+      .term-text {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: -0.2px;
+      }
+      .prompt-text {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: -0.2px;
       }
 
       /* Terminal Typing Keyframes (9.0s Choreography) */
@@ -195,7 +189,7 @@
   <!-- Outer Viewport Base -->
   <rect width="760" height="440" rx="8" fill="#08080a" stroke="#1f242c" stroke-width="1" />
 
-  <!-- Background Live Wallpaper: Clean Clipped Canvas -->
+  <!-- Background Live Wallpaper: Ambient Halftone Hands -->
   <g clip-path="url(#canvas-clip)" style="overflow: hidden;">
     <!-- Left Hand Group (Stage 1 Intro + Stage 2 Infinite Sway) -->
     <g id="left-hand-intro">
@@ -210,145 +204,122 @@
         <image href="data:image/png;base64,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" xlink:href="data:image/png;base64,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" x="380" y="185" width="379" height="184" />
       </g>
     </g>
-
-    <!-- Minimal Monochrome Dot-Matrix Flicker at Fingertip Contact (385, 245) -->
-    <g id="dot-flicker">
-      <!-- Soft ambient glow -->
-      <circle cx="385" cy="245" r="16" fill="#e6edf3" opacity="0.22" />
-
-      <!-- Center contact dot -->
-      <circle cx="385" cy="245" r="1.8" fill="#ffffff" />
-
-      <!-- Primary contact zone grid dots (crisp white) -->
-      <circle cx="380" cy="245" r="1.6" fill="#ffffff" />
-      <circle cx="390" cy="245" r="1.6" fill="#ffffff" />
-      <circle cx="385" cy="240" r="1.6" fill="#ffffff" />
-      <circle cx="385" cy="250" r="1.6" fill="#ffffff" />
-
-      <!-- Neighboring fingertip grid dots (subtle silver) -->
-      <circle cx="380" cy="240" r="1.4" fill="#c9d1d9" />
-      <circle cx="390" cy="240" r="1.4" fill="#c9d1d9" />
-      <circle cx="380" cy="250" r="1.4" fill="#c9d1d9" />
-      <circle cx="390" cy="250" r="1.4" fill="#c9d1d9" />
-      <circle cx="375" cy="245" r="1.4" fill="#c9d1d9" />
-      <circle cx="395" cy="245" r="1.4" fill="#c9d1d9" />
-    </g>
   </g>
 
-  <!-- Centered Kitty Window (Smooth Fade-In 2.20s - 2.75s) -->
+  <!-- Wide, High-Contrast Kitty Terminal Window (Scale-Up for Crisp Mobile Viewing) -->
   <g id="kitty-window">
     <!-- Window Drop Shadow -->
-    <rect x="70" y="36" width="620" height="368" rx="6" fill="none" stroke="#000000" stroke-width="6" stroke-opacity="0.4" />
+    <rect x="32" y="18" width="696" height="404" rx="8" fill="none" stroke="#000000" stroke-width="6" stroke-opacity="0.45" />
 
-    <!-- Frosted Glass Backing -->
-    <rect x="70" y="36" width="620" height="368" rx="6" fill="#0c0d12" fill-opacity="0.78" stroke="#2d333b" stroke-width="1" />
+    <!-- Frosted Glass Backing with Enhanced Contrast -->
+    <rect x="32" y="18" width="696" height="404" rx="8" fill="#090a0f" fill-opacity="0.82" stroke="#2d333b" stroke-width="1.2" />
 
     <!-- Window Titlebar -->
-    <path d="M 70 42 A 6 6 0 0 1 76 36 L 684 36 A 6 6 0 0 1 690 42 L 690 62 L 70 62 Z" fill="#161b22" fill-opacity="0.9" stroke="#2d333b" stroke-width="1" />
-    <line x1="70" y1="62" x2="690" y2="62" stroke="#2d333b" stroke-width="1" />
+    <path d="M 32 26 A 8 8 0 0 1 40 18 L 720 18 A 8 8 0 0 1 728 26 L 728 46 L 32 46 Z" fill="#161b22" fill-opacity="0.92" stroke="#2d333b" stroke-width="1" />
+    <line x1="32" y1="46" x2="728" y2="46" stroke="#2d333b" stroke-width="1" />
 
     <!-- Titlebar Title -->
-    <text x="84" y="53" fill="#c9d1d9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12px" font-weight="bold">kitty</text>
+    <text x="48" y="37" fill="#c9d1d9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13px" font-weight="bold">kitty</text>
 
     <!-- Retro Window Control Icons -->
     <g stroke="#8b949e" fill="none">
-      <rect x="630" y="41" width="16" height="16" />
-      <line x1="634" y1="51" x2="642" y2="51" stroke-width="1.5" />
-      <rect x="648" y="41" width="16" height="16" />
-      <rect x="649" y="44" width="10" height="9" />
-      <rect x="666" y="41" width="16" height="16" />
-      <path d="M670 45 L678 53 M678 45 L670 53" stroke-width="1.2" />
+      <rect x="664" y="25" width="16" height="16" />
+      <line x1="668" y1="35" x2="676" y2="35" stroke-width="1.5" />
+      <rect x="682" y="25" width="16" height="16" />
+      <rect x="683" y="28" width="10" height="9" />
+      <rect x="700" y="25" width="16" height="16" />
+      <path d="M704 29 L712 37 M712 29 L704 37" stroke-width="1.2" />
     </g>
 
-    <!-- Terminal Content Area -->
-    <g font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13px" xml:space="preserve">
+    <!-- Terminal Content Area (18px Big, Bold & Readable Typography) -->
+    <g class="prompt-text" xml:space="preserve">
       
       <!-- Section 1: cat ~/.profile -->
       <g id="block1">
-        <text x="92" y="90" class="p1_idle"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> </tspan><tspan class="cursor" fill="#e6edf3">&#9608;</tspan></text>
-        <text x="92" y="90" class="c1_0"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> c&#9608;</tspan></text>
-        <text x="92" y="90" class="c1_1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> ca&#9608;</tspan></text>
-        <text x="92" y="90" class="c1_2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat&#9608;</tspan></text>
-        <text x="92" y="90" class="c1_3"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat &#9608;</tspan></text>
-        <text x="92" y="90" class="c1_4"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~&#9608;</tspan></text>
-        <text x="92" y="90" class="c1_5"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/&#9608;</tspan></text>
-        <text x="92" y="90" class="c1_6"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.&#9608;</tspan></text>
-        <text x="92" y="90" class="c1_7"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.p&#9608;</tspan></text>
-        <text x="92" y="90" class="c1_8"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.pr&#9608;</tspan></text>
-        <text x="92" y="90" class="c1_9"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.pro&#9608;</tspan></text>
-        <text x="92" y="90" class="c1_10"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.prof&#9608;</tspan></text>
-        <text x="92" y="90" class="c1_11"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.profi&#9608;</tspan></text>
-        <text x="92" y="90" class="c1_12"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.profil&#9608;</tspan></text>
-        <text x="92" y="90" class="c1_13"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.profile&#9608;</tspan></text>
-        <text x="92" y="90" class="perm1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.profile</tspan></text>
-        <g class="out1">
-          <line x1="104" y1="102" x2="104" y2="154" stroke="#252b35" stroke-width="1.5" stroke-linecap="round"/>
-          <text x="116" y="112"><tspan fill="#e6edf3">omi (@omi4real) &#8212; linux </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> android systems developer.</tspan></text>
-          <text x="116" y="132"><tspan fill="#e6edf3">living </tspan><tspan fill="#ff7b72">in</tspan><tspan fill="#e6edf3"> open terminals: testing, debugging </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> fixing</tspan></text>
-          <text x="116" y="152"><tspan fill="#e6edf3">software across the framework </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> kernel layers.</tspan></text>
+        <text x="52" y="74" class="p1_idle"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> </tspan><tspan class="cursor" fill="#e6edf3">&#9608;</tspan></text>
+        <text x="52" y="74" class="c1_0"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> c&#9608;</tspan></text>
+        <text x="52" y="74" class="c1_1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> ca&#9608;</tspan></text>
+        <text x="52" y="74" class="c1_2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat&#9608;</tspan></text>
+        <text x="52" y="74" class="c1_3"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat &#9608;</tspan></text>
+        <text x="52" y="74" class="c1_4"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~&#9608;</tspan></text>
+        <text x="52" y="74" class="c1_5"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/&#9608;</tspan></text>
+        <text x="52" y="74" class="c1_6"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.&#9608;</tspan></text>
+        <text x="52" y="74" class="c1_7"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.p&#9608;</tspan></text>
+        <text x="52" y="74" class="c1_8"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.pr&#9608;</tspan></text>
+        <text x="52" y="74" class="c1_9"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.pro&#9608;</tspan></text>
+        <text x="52" y="74" class="c1_10"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.prof&#9608;</tspan></text>
+        <text x="52" y="74" class="c1_11"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.profi&#9608;</tspan></text>
+        <text x="52" y="74" class="c1_12"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.profil&#9608;</tspan></text>
+        <text x="52" y="74" class="c1_13"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.profile&#9608;</tspan></text>
+        <text x="52" y="74" class="perm1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat ~/.profile</tspan></text>
+        <g class="out1 term-text">
+          <line x1="62" y1="88" x2="62" y2="152" stroke="#2d333b" stroke-width="2" stroke-linecap="round"/>
+          <text x="74" y="100"><tspan fill="#e6edf3">omi (@omi4real) &#8212; linux </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> android systems developer.</tspan></text>
+          <text x="74" y="124"><tspan fill="#e6edf3">living </tspan><tspan fill="#ff7b72">in</tspan><tspan fill="#e6edf3"> open terminals: testing, debugging </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> fixing</tspan></text>
+          <text x="74" y="148"><tspan fill="#e6edf3">software across the framework </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> kernel layers.</tspan></text>
         </g>
       </g>
 
       <!-- Section 2: cat /etc/focus -->
       <g id="block2">
-        <text x="92" y="178" class="p2_idle"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> </tspan><tspan class="cursor" fill="#e6edf3">&#9608;</tspan></text>
-        <text x="92" y="178" class="c2_0"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> c&#9608;</tspan></text>
-        <text x="92" y="178" class="c2_1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> ca&#9608;</tspan></text>
-        <text x="92" y="178" class="c2_2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat&#9608;</tspan></text>
-        <text x="92" y="178" class="c2_3"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat &#9608;</tspan></text>
-        <text x="92" y="178" class="c2_4"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /&#9608;</tspan></text>
-        <text x="92" y="178" class="c2_5"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /e&#9608;</tspan></text>
-        <text x="92" y="178" class="c2_6"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /et&#9608;</tspan></text>
-        <text x="92" y="178" class="c2_7"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc&#9608;</tspan></text>
-        <text x="92" y="178" class="c2_8"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/&#9608;</tspan></text>
-        <text x="92" y="178" class="c2_9"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/f&#9608;</tspan></text>
-        <text x="92" y="178" class="c2_10"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/fo&#9608;</tspan></text>
-        <text x="92" y="178" class="c2_11"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/foc&#9608;</tspan></text>
-        <text x="92" y="178" class="c2_12"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/focu&#9608;</tspan></text>
-        <text x="92" y="178" class="c2_13"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/focus&#9608;</tspan></text>
-        <text x="92" y="178" class="perm2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/focus</tspan></text>
-        <g class="out2">
-          <line x1="104" y1="188" x2="104" y2="240" stroke="#252b35" stroke-width="1.5" stroke-linecap="round"/>
-          <text x="116" y="198"><tspan fill="#79c0ff">[systems]</tspan></text>
-          <text x="220" y="198"><tspan fill="#e6edf3">linux, shell scripting </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> cli automation</tspan></text>
+        <text x="52" y="176" class="p2_idle"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> </tspan><tspan class="cursor" fill="#e6edf3">&#9608;</tspan></text>
+        <text x="52" y="176" class="c2_0"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> c&#9608;</tspan></text>
+        <text x="52" y="176" class="c2_1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> ca&#9608;</tspan></text>
+        <text x="52" y="176" class="c2_2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat&#9608;</tspan></text>
+        <text x="52" y="176" class="c2_3"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat &#9608;</tspan></text>
+        <text x="52" y="176" class="c2_4"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /&#9608;</tspan></text>
+        <text x="52" y="176" class="c2_5"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /e&#9608;</tspan></text>
+        <text x="52" y="176" class="c2_6"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /et&#9608;</tspan></text>
+        <text x="52" y="176" class="c2_7"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc&#9608;</tspan></text>
+        <text x="52" y="176" class="c2_8"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/&#9608;</tspan></text>
+        <text x="52" y="176" class="c2_9"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/f&#9608;</tspan></text>
+        <text x="52" y="176" class="c2_10"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/fo&#9608;</tspan></text>
+        <text x="52" y="176" class="c2_11"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/foc&#9608;</tspan></text>
+        <text x="52" y="176" class="c2_12"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/focu&#9608;</tspan></text>
+        <text x="52" y="176" class="c2_13"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/focus&#9608;</tspan></text>
+        <text x="52" y="176" class="perm2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /etc/focus</tspan></text>
+        <g class="out2 term-text">
+          <line x1="62" y1="190" x2="62" y2="254" stroke="#2d333b" stroke-width="2" stroke-linecap="round"/>
+          <text x="74" y="202"><tspan fill="#79c0ff">[systems]</tspan></text>
+          <text x="208" y="202"><tspan fill="#e6edf3">linux, shell scripting </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> cli automation</tspan></text>
 
-          <text x="116" y="218"><tspan fill="#79c0ff">[android]</tspan></text>
-          <text x="220" y="218"><tspan fill="#e6edf3">rom development, ports </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> modules</tspan></text>
+          <text x="74" y="226"><tspan fill="#79c0ff">[android]</tspan></text>
+          <text x="208" y="226"><tspan fill="#e6edf3">rom development, ports </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> modules</tspan></text>
 
-          <text x="116" y="238"><tspan fill="#79c0ff">[low-level]</tspan></text>
-          <text x="220" y="238"><tspan fill="#e6edf3">log analysis, debugging </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> system patching</tspan></text>
+          <text x="74" y="250"><tspan fill="#79c0ff">[low-level]</tspan></text>
+          <text x="208" y="250"><tspan fill="#e6edf3">log analysis, debugging </tspan><tspan fill="#ff7b72">&amp;</tspan><tspan fill="#e6edf3"> system patching</tspan></text>
         </g>
       </g>
 
       <!-- Section 3: cat /proc/loop -->
       <g id="block3">
-        <text x="92" y="264" class="p3_idle"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> </tspan><tspan class="cursor" fill="#e6edf3">&#9608;</tspan></text>
-        <text x="92" y="264" class="c3_0"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> c&#9608;</tspan></text>
-        <text x="92" y="264" class="c3_1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> ca&#9608;</tspan></text>
-        <text x="92" y="264" class="c3_2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat&#9608;</tspan></text>
-        <text x="92" y="264" class="c3_3"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat &#9608;</tspan></text>
-        <text x="92" y="264" class="c3_4"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /&#9608;</tspan></text>
-        <text x="92" y="264" class="c3_5"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /p&#9608;</tspan></text>
-        <text x="92" y="264" class="c3_6"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /pr&#9608;</tspan></text>
-        <text x="92" y="264" class="c3_7"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /pro&#9608;</tspan></text>
-        <text x="92" y="264" class="c3_8"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc&#9608;</tspan></text>
-        <text x="92" y="264" class="c3_9"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/&#9608;</tspan></text>
-        <text x="92" y="264" class="c3_10"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/l&#9608;</tspan></text>
-        <text x="92" y="264" class="c3_11"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/lo&#9608;</tspan></text>
-        <text x="92" y="264" class="c3_12"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/loo&#9608;</tspan></text>
-        <text x="92" y="264" class="c3_13"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/loop&#9608;</tspan></text>
-        <text x="92" y="264" class="perm3"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/loop</tspan></text>
-        <g class="out3">
-          <line x1="104" y1="274" x2="104" y2="326" stroke="#252b35" stroke-width="1.5" stroke-linecap="round"/>
-          <text x="116" y="284"><tspan fill="#ff7b72">while</tspan><tspan fill="#e6edf3"> true; </tspan><tspan fill="#ff7b72">do</tspan></text>
-          <text x="140" y="304"><tspan fill="#e6edf3">test </tspan><tspan fill="#ff7b72">||</tspan><tspan fill="#e6edf3"> debug </tspan><tspan fill="#ff7b72">&amp;&amp;</tspan><tspan fill="#e6edf3"> fix</tspan></text>
-          <text x="116" y="324"><tspan fill="#ff7b72">done</tspan></text>
+        <text x="52" y="278" class="p3_idle"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> </tspan><tspan class="cursor" fill="#e6edf3">&#9608;</tspan></text>
+        <text x="52" y="278" class="c3_0"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> c&#9608;</tspan></text>
+        <text x="52" y="278" class="c3_1"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> ca&#9608;</tspan></text>
+        <text x="52" y="278" class="c3_2"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat&#9608;</tspan></text>
+        <text x="52" y="278" class="c3_3"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat &#9608;</tspan></text>
+        <text x="52" y="278" class="c3_4"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /&#9608;</tspan></text>
+        <text x="52" y="278" class="c3_5"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /p&#9608;</tspan></text>
+        <text x="52" y="278" class="c3_6"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /pr&#9608;</tspan></text>
+        <text x="52" y="278" class="c3_7"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /pro&#9608;</tspan></text>
+        <text x="52" y="278" class="c3_8"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc&#9608;</tspan></text>
+        <text x="52" y="278" class="c3_9"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/&#9608;</tspan></text>
+        <text x="52" y="278" class="c3_10"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/l&#9608;</tspan></text>
+        <text x="52" y="278" class="c3_11"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/lo&#9608;</tspan></text>
+        <text x="52" y="278" class="c3_12"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/loo&#9608;</tspan></text>
+        <text x="52" y="278" class="c3_13"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/loop&#9608;</tspan></text>
+        <text x="52" y="278" class="perm3"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> cat /proc/loop</tspan></text>
+        <g class="out3 term-text">
+          <line x1="62" y1="292" x2="62" y2="356" stroke="#2d333b" stroke-width="2" stroke-linecap="round"/>
+          <text x="74" y="304"><tspan fill="#ff7b72">while</tspan><tspan fill="#e6edf3"> true; </tspan><tspan fill="#ff7b72">do</tspan></text>
+          <text x="102" y="328"><tspan fill="#e6edf3">test </tspan><tspan fill="#ff7b72">||</tspan><tspan fill="#e6edf3"> debug </tspan><tspan fill="#ff7b72">&amp;&amp;</tspan><tspan fill="#e6edf3"> fix</tspan></text>
+          <text x="74" y="352"><tspan fill="#ff7b72">done</tspan></text>
         </g>
       </g>
 
       <!-- Section 4: Final Prompt with Blinking Cursor (8.20s -> forever) -->
       <g class="p4_line">
-        <text x="92" y="350"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> </tspan><tspan class="cursor" fill="#e6edf3">&#9608;</tspan></text>
+        <text x="52" y="380"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> </tspan><tspan class="cursor" fill="#7ee787">&#9608;</tspan></text>
       </g>
     </g>
   </g>
