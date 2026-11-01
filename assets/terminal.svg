@@ -1,5 +1,20 @@
 <svg width="100%" height="100%" viewBox="0 0 760 440" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden;">
   <defs>
+    <!-- Monochrome Silver Gradients for Star Glow -->
+    <radialGradient id="silver-aura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+      <stop offset="22%" stop-color="#e6edf3" stop-opacity="0.55" />
+      <stop offset="55%" stop-color="#8b949e" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#08080a" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="silver-flare" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#e6edf3" stop-opacity="0" />
+      <stop offset="35%" stop-color="#c9d1d9" stop-opacity="0.45" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.95" />
+      <stop offset="65%" stop-color="#c9d1d9" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#e6edf3" stop-opacity="0" />
+    </linearGradient>
+
     <style>
       @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
       .cursor { animation: blink 1s step-end infinite; }
@@ -49,45 +64,19 @@
         animation: right_sway 5.6s ease-in-out 4.5s infinite both;
       }
 
-      /* --- Step 2: Shockwave and Contact Ignition at (385, 245) (2.20s - 3.05s) --- */
-      @keyframes contact_flash {
-        0% { opacity: 0; transform: scale(0.2); }
-        20% { opacity: 1; transform: scale(1.0); }
-        65% { opacity: 0.8; transform: scale(1.8); }
-        100% { opacity: 0; transform: scale(2.2); }
+      /* --- Step 2: Monochrome Silver Star Glow at (385, 245) --- */
+      @keyframes silverBloom {
+        0%, 72% { opacity: 0; transform: scale(0.12); }
+        74% { opacity: 1; transform: scale(0.55); }
+        85% { opacity: 1; transform: scale(1.0); }
+        100% { opacity: 0.55; transform: scale(1.0); }
       }
-      #contact-flash {
+      #silver-star-glow {
         opacity: 0;
         transform-box: view-box;
         transform-origin: 385px 245px;
         will-change: transform, opacity;
-        animation: contact_flash 0.45s cubic-bezier(0.16, 1, 0.3, 1) 2.20s 1 forwards;
-      }
-
-      @keyframes shockwave_prim {
-        0% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.7; }
-        100% { opacity: 0; transform: scale(28); }
-      }
-      #shockwave-prim {
-        opacity: 0;
-        transform-box: view-box;
-        transform-origin: 385px 245px;
-        will-change: transform, opacity;
-        animation: shockwave_prim 0.75s cubic-bezier(0.16, 1, 0.3, 1) 2.20s 1 forwards;
-      }
-
-      @keyframes shockwave_echo {
-        0% { opacity: 0.85; transform: scale(1); }
-        50% { opacity: 0.5; }
-        100% { opacity: 0; transform: scale(22); }
-      }
-      #shockwave-echo {
-        opacity: 0;
-        transform-box: view-box;
-        transform-origin: 385px 245px;
-        will-change: transform, opacity;
-        animation: shockwave_echo 0.77s cubic-bezier(0.16, 1, 0.3, 1) 2.28s 1 forwards;
+        animation: silverBloom 3.0s cubic-bezier(0.16, 1, 0.3, 1) 1 forwards;
       }
 
       /* --- Step 3: Spawn kitty-window Out of Shockwave (2.35s - 2.95s) --- */
@@ -237,42 +226,26 @@
       </g>
     </g>
 
-    <!-- Shockwave and Contact Ignition at (385, 245) -->
-    <g id="shockwave-layer">
-      <!-- Primary Dotted Shockwave Ring (2.20s - 2.95s: scale 1 -> 28) -->
-      <circle id="shockwave-prim" cx="385" cy="245" r="8" fill="none" stroke="#e6edf3" stroke-width="2" stroke-dasharray="3 6" />
+    <!-- Paused Silver Star Glow at (385, 245) -->
+    <g id="silver-star-glow" style="transform-origin: 385px 245px;">
+      <!-- Ambient Silver Halo -->
+      <circle cx="385" cy="245" r="88" fill="url(#silver-aura)" />
 
-      <!-- Secondary Green Matrix Echo Ring (2.28s - 3.05s: scale 1 -> 22) -->
-      <circle id="shockwave-echo" cx="385" cy="245" r="8" fill="none" stroke="#7ee787" stroke-width="1.5" stroke-dasharray="2 8" />
+      <!-- Horizontal Silver Anamorphic Streak -->
+      <ellipse cx="385" cy="245" rx="95" ry="1.3" fill="url(#silver-flare)" />
 
-      <!-- Inner Contact Flash Crosshair / Star Burst (2.20s - 2.65s: scale 0.2 -> 2.2) -->
-      <g id="contact-flash">
-        <!-- Center energy core -->
-        <rect x="383" y="243" width="4" height="4" fill="#ffffff" />
-        <circle cx="385" cy="245" r="7" fill="#7ee787" fill-opacity="0.35" />
+      <!-- Secondary Diagonal 4-Point Star (Subtle Silver #c9d1d9) -->
+      <path d="M 385 223 Q 385 245 407 245 Q 385 245 385 267 Q 385 245 363 245 Q 385 245 385 223 Z" fill="#c9d1d9" fill-opacity="0.65" transform="rotate(45 385 245)" />
 
-        <!-- Green pixel crosshair nodes -->
-        <rect x="384" y="235" width="2" height="2" fill="#7ee787" />
-        <rect x="384" y="253" width="2" height="2" fill="#7ee787" />
-        <rect x="375" y="244" width="2" height="2" fill="#7ee787" />
-        <rect x="393" y="244" width="2" height="2" fill="#7ee787" />
+      <!-- Primary Needle-Sharp 4-Point Silver-White Star (#ffffff) -->
+      <path d="M 385 188 Q 385 245 442 245 Q 385 245 385 302 Q 385 245 328 245 Q 385 245 385 188 Z" fill="#ffffff" />
 
-        <!-- White diagonal nodes -->
-        <rect x="379" y="239" width="2" height="2" fill="#e6edf3" />
-        <rect x="389" y="239" width="2" height="2" fill="#e6edf3" />
-        <rect x="379" y="249" width="2" height="2" fill="#e6edf3" />
-        <rect x="389" y="249" width="2" height="2" fill="#e6edf3" />
-
-        <!-- Monospace spark glyphs -->
-        <text x="385" y="233" text-anchor="middle" fill="#7ee787" font-family="ui-monospace, monospace" font-size="9px" font-weight="bold">+</text>
-        <text x="385" y="264" text-anchor="middle" fill="#7ee787" font-family="ui-monospace, monospace" font-size="9px" font-weight="bold">+</text>
-        <text x="371" y="248" text-anchor="middle" fill="#e6edf3" font-family="ui-monospace, monospace" font-size="9px">*</text>
-        <text x="399" y="248" text-anchor="middle" fill="#e6edf3" font-family="ui-monospace, monospace" font-size="9px">*</text>
-      </g>
+      <!-- Bright Center Pinpoint -->
+      <circle cx="385" cy="245" r="3.5" fill="#ffffff" />
     </g>
   </g>
 
-  <!-- Centered Kitty Window (Materializes Out of Shockwave 2.35s - 2.95s) -->
+  <!-- Centered Kitty Window (Materializes Over Paused Glow 2.35s - 2.95s) -->
   <g id="kitty-window">
     <!-- Window Drop Shadow -->
     <rect x="70" y="36" width="620" height="368" rx="6" fill="none" stroke="#000000" stroke-width="6" stroke-opacity="0.4" />
