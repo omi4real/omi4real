@@ -40,10 +40,17 @@
       .f6 { animation-name: f6; }
       .f_perm { animation-name: f_perm; }
 
-      .sub {
+      @keyframes xinit_dump {
+        0%, 99.99% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+
+      .xinit_line {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        font-size: 17px;
-        fill: #8b949e;
+        font-size: 18px;
+        font-weight: 600;
+        opacity: 0;
+        animation: xinit_dump 2.2s step-end 1 forwards;
       }
     </style>
   </defs>
@@ -78,7 +85,7 @@
     <!-- Permanent State: 2.2s -> forever (omi@tty1:~$ startx with cursor hidden) -->
     <text x="60" y="178" class="frame f_perm"><tspan fill="#7ee787">omi@tty1:~$</tspan><tspan fill="#e6edf3"> startx</tspan></text>
 
-    <!-- Static Subtitle -->
-    <text x="60" y="220" class="sub">[loop] test -&gt; debug -&gt; fix -&gt; repeat</text>
+    <!-- Live xinit Kitty Launch Trigger (Appears at 2.20s as startx executes) -->
+    <text x="60" y="220" class="xinit_line"><tspan fill="#79c0ff">[xinit]</tspan><tspan fill="#c9d1d9"> exec kitty -e ~/.local/bin/profile.sh </tspan><tspan fill="#ff7b72">&amp;</tspan></text>
   </g>
 </svg>

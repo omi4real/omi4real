@@ -219,7 +219,7 @@
     <line x1="32" y1="46" x2="728" y2="46" stroke="#2d333b" stroke-width="1" />
 
     <!-- Titlebar Title -->
-    <text x="48" y="37" fill="#c9d1d9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13px" font-weight="bold">kitty</text>
+    <text x="48" y="37" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12px"><tspan fill="#c9d1d9" font-weight="bold">kitty</tspan><tspan fill="#8b949e"> &#8212; ~/.local/bin/profile.sh</tspan></text>
 
     <!-- Retro Window Control Icons -->
     <g stroke="#8b949e" fill="none">
