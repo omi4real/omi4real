@@ -62,15 +62,15 @@
       /* Large, High-Legibility Typography Rules */
       .term-text {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 500;
-        letter-spacing: -0.25px;
+        letter-spacing: -0.2px;
       }
       .prompt-text {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 700;
-        letter-spacing: -0.25px;
+        letter-spacing: -0.2px;
       }
 
       /* Fast Terminal Typing Keyframes (8.20s Choreography) */
@@ -221,7 +221,7 @@
     <line x1="32" y1="46" x2="728" y2="46" stroke="#2d333b" stroke-width="1" />
 
     <!-- Titlebar Title -->
-    <text x="48" y="37" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13.5px"><tspan fill="#c9d1d9" font-weight="bold">kitty</tspan><tspan fill="#8b949e"> &#8212; ~/.local/bin/profile.sh</tspan></text>
+    <text x="48" y="37" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12px"><tspan fill="#c9d1d9" font-weight="bold">kitty</tspan><tspan fill="#8b949e"> &#8212; ~/.local/bin/profile.sh</tspan></text>
 
     <!-- Retro Window Control Icons -->
     <g stroke="#8b949e" fill="none">
