@@ -4,51 +4,51 @@
       @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
       .cursor { animation: blink 1s step-end infinite; }
 
-      /* --- Step 1: Smooth Off-Screen Entry (0.0s - 1.80s) --- */
+      /* --- Step 1: Smooth Off-Screen Entry (0.0s - 3.40s) --- */
       @keyframes left_intro {
-        0% { transform: translate3d(-380px, -12px, 0); }
-        100% { transform: translate3d(0px, 0px, 0); }
+        0% { transform: translate(-420px, -12px); }
+        100% { transform: translate(0px, 0px); }
       }
       #left-hand-intro {
         will-change: transform;
-        transform: translate3d(-380px, -12px, 0);
-        animation: left_intro 1.80s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
+        transform: translate(-420px, -12px);
+        animation: left_intro 3.40s cubic-bezier(0.16, 1, 0.3, 1) 0.0s 1 both;
       }
 
       @keyframes right_intro {
-        0% { transform: translate3d(380px, 12px, 0); }
-        100% { transform: translate3d(0px, 0px, 0); }
+        0% { transform: translate(420px, 12px); }
+        100% { transform: translate(0px, 0px); }
       }
       #right-hand-intro {
         will-change: transform;
-        transform: translate3d(380px, 12px, 0);
-        animation: right_intro 1.80s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
+        transform: translate(420px, 12px);
+        animation: right_intro 3.40s cubic-bezier(0.16, 1, 0.3, 1) 0.0s 1 both;
       }
 
-      /* --- Step 2: Infinite Wallpaper Sway (Seamless Takeover at 1.80s) --- */
+      /* --- Step 2: Infinite Wallpaper Sway (Seamless Takeover at 3.40s) --- */
       @keyframes left_sway {
-        0%, 100% { transform: translate3d(0px, 0px, 0); }
-        25% { transform: translate3d(8px, 10px, 0); }
-        50% { transform: translate3d(-6px, -10px, 0); }
-        75% { transform: translate3d(6px, 6px, 0); }
+        0%, 100% { transform: translate(0px, 0px); }
+        25% { transform: translate(8px, 10px); }
+        50% { transform: translate(-6px, -10px); }
+        75% { transform: translate(6px, 6px); }
       }
       #left-hand-sway {
         will-change: transform;
-        animation: left_sway 8.0s ease-in-out 1.80s infinite both;
+        animation: left_sway 8.0s ease-in-out 3.40s infinite both;
       }
 
       @keyframes right_sway {
-        0%, 100% { transform: translate3d(0px, 0px, 0); }
-        25% { transform: translate3d(-8px, -10px, 0); }
-        50% { transform: translate3d(6px, 10px, 0); }
-        75% { transform: translate3d(-6px, -6px, 0); }
+        0%, 100% { transform: translate(0px, 0px); }
+        25% { transform: translate(-8px, -10px); }
+        50% { transform: translate(6px, 10px); }
+        75% { transform: translate(-6px, -6px); }
       }
       #right-hand-sway {
         will-change: transform;
-        animation: right_sway 8.0s ease-in-out 1.80s infinite both;
+        animation: right_sway 8.0s ease-in-out 3.40s infinite both;
       }
 
-      /* --- Step 3: Kitty Window Smooth Fade-In (1.80s - 2.30s) --- */
+      /* --- Step 3: Kitty Window Smooth Fade-In (2.40s - 3.40s) --- */
       @keyframes kitty_fade {
         0% { opacity: 0; }
         100% { opacity: 1; }
@@ -56,132 +56,132 @@
       #kitty-window {
         opacity: 0;
         will-change: opacity;
-        animation: kitty_fade 0.50s cubic-bezier(0.22, 1, 0.36, 1) 1.80s 1 forwards;
+        animation: kitty_fade 1.00s cubic-bezier(0.16, 1, 0.3, 1) 2.40s 1 forwards;
       }
 
       /* Large, High-Legibility Typography Rules */
       .term-text {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 500;
-        letter-spacing: -0.2px;
+        letter-spacing: -0.25px;
       }
       .prompt-text {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 700;
-        letter-spacing: -0.2px;
+        letter-spacing: -0.25px;
       }
 
-      /* Fast Terminal Typing Keyframes (6.80s Choreography) */
-@keyframes k_p1_idle { 0%, 33.81% { opacity: 0; } 33.82%, 38.96% { opacity: 1; } 38.97%, 100% { opacity: 0; } }
-@keyframes k_c1_0 { 0%, 38.96% { opacity: 0; } 38.97%, 39.91% { opacity: 1; } 39.92%, 100% { opacity: 0; } }
-@keyframes k_c1_1 { 0%, 39.91% { opacity: 0; } 39.92%, 40.85% { opacity: 1; } 40.86%, 100% { opacity: 0; } }
-@keyframes k_c1_2 { 0%, 40.85% { opacity: 0; } 40.86%, 41.80% { opacity: 1; } 41.81%, 100% { opacity: 0; } }
-@keyframes k_c1_3 { 0%, 41.80% { opacity: 0; } 41.81%, 42.74% { opacity: 1; } 42.75%, 100% { opacity: 0; } }
-@keyframes k_c1_4 { 0%, 42.74% { opacity: 0; } 42.75%, 43.69% { opacity: 1; } 43.70%, 100% { opacity: 0; } }
-@keyframes k_c1_5 { 0%, 43.69% { opacity: 0; } 43.70%, 44.63% { opacity: 1; } 44.64%, 100% { opacity: 0; } }
-@keyframes k_c1_6 { 0%, 44.63% { opacity: 0; } 44.64%, 45.58% { opacity: 1; } 45.59%, 100% { opacity: 0; } }
-@keyframes k_c1_7 { 0%, 45.58% { opacity: 0; } 45.59%, 46.52% { opacity: 1; } 46.53%, 100% { opacity: 0; } }
-@keyframes k_c1_8 { 0%, 46.52% { opacity: 0; } 46.53%, 47.47% { opacity: 1; } 47.48%, 100% { opacity: 0; } }
-@keyframes k_c1_9 { 0%, 47.47% { opacity: 0; } 47.48%, 48.41% { opacity: 1; } 48.42%, 100% { opacity: 0; } }
-@keyframes k_c1_10 { 0%, 48.41% { opacity: 0; } 48.42%, 49.36% { opacity: 1; } 49.37%, 100% { opacity: 0; } }
-@keyframes k_c1_11 { 0%, 49.36% { opacity: 0; } 49.37%, 50.31% { opacity: 1; } 50.32%, 100% { opacity: 0; } }
-@keyframes k_c1_12 { 0%, 50.31% { opacity: 0; } 50.32%, 51.25% { opacity: 1; } 51.26%, 100% { opacity: 0; } }
-@keyframes k_c1_13 { 0%, 51.25% { opacity: 0; } 51.26%, 52.20% { opacity: 1; } 52.21%, 100% { opacity: 0; } }
-@keyframes k_perm1 { 0%, 52.20% { opacity: 0; } 52.21%, 100% { opacity: 1; } }
-@keyframes k_out1 { 0%, 52.20% { opacity: 0; } 52.21%, 100% { opacity: 1; } }
-@keyframes k_p2_idle { 0%, 52.20% { opacity: 0; } 52.21%, 62.49% { opacity: 1; } 62.50%, 100% { opacity: 0; } }
-@keyframes k_c2_0 { 0%, 62.49% { opacity: 0; } 62.50%, 63.44% { opacity: 1; } 63.45%, 100% { opacity: 0; } }
-@keyframes k_c2_1 { 0%, 63.44% { opacity: 0; } 63.45%, 64.38% { opacity: 1; } 64.39%, 100% { opacity: 0; } }
-@keyframes k_c2_2 { 0%, 64.38% { opacity: 0; } 64.39%, 65.33% { opacity: 1; } 65.34%, 100% { opacity: 0; } }
-@keyframes k_c2_3 { 0%, 65.33% { opacity: 0; } 65.34%, 66.27% { opacity: 1; } 66.28%, 100% { opacity: 0; } }
-@keyframes k_c2_4 { 0%, 66.27% { opacity: 0; } 66.28%, 67.22% { opacity: 1; } 67.23%, 100% { opacity: 0; } }
-@keyframes k_c2_5 { 0%, 67.22% { opacity: 0; } 67.23%, 68.16% { opacity: 1; } 68.17%, 100% { opacity: 0; } }
-@keyframes k_c2_6 { 0%, 68.16% { opacity: 0; } 68.17%, 69.11% { opacity: 1; } 69.12%, 100% { opacity: 0; } }
-@keyframes k_c2_7 { 0%, 69.11% { opacity: 0; } 69.12%, 70.05% { opacity: 1; } 70.06%, 100% { opacity: 0; } }
-@keyframes k_c2_8 { 0%, 70.05% { opacity: 0; } 70.06%, 71.00% { opacity: 1; } 71.01%, 100% { opacity: 0; } }
-@keyframes k_c2_9 { 0%, 71.00% { opacity: 0; } 71.01%, 71.94% { opacity: 1; } 71.95%, 100% { opacity: 0; } }
-@keyframes k_c2_10 { 0%, 71.94% { opacity: 0; } 71.95%, 72.89% { opacity: 1; } 72.90%, 100% { opacity: 0; } }
-@keyframes k_c2_11 { 0%, 72.89% { opacity: 0; } 72.90%, 73.83% { opacity: 1; } 73.84%, 100% { opacity: 0; } }
-@keyframes k_c2_12 { 0%, 73.83% { opacity: 0; } 73.84%, 74.78% { opacity: 1; } 74.79%, 100% { opacity: 0; } }
-@keyframes k_c2_13 { 0%, 74.78% { opacity: 0; } 74.79%, 75.73% { opacity: 1; } 75.74%, 100% { opacity: 0; } }
-@keyframes k_perm2 { 0%, 75.73% { opacity: 0; } 75.74%, 100% { opacity: 1; } }
-@keyframes k_out2 { 0%, 75.73% { opacity: 0; } 75.74%, 100% { opacity: 1; } }
-@keyframes k_p3_idle { 0%, 75.73% { opacity: 0; } 75.74%, 86.02% { opacity: 1; } 86.03%, 100% { opacity: 0; } }
-@keyframes k_c3_0 { 0%, 86.02% { opacity: 0; } 86.03%, 86.96% { opacity: 1; } 86.97%, 100% { opacity: 0; } }
-@keyframes k_c3_1 { 0%, 86.96% { opacity: 0; } 86.97%, 87.91% { opacity: 1; } 87.92%, 100% { opacity: 0; } }
-@keyframes k_c3_2 { 0%, 87.91% { opacity: 0; } 87.92%, 88.86% { opacity: 1; } 88.87%, 100% { opacity: 0; } }
-@keyframes k_c3_3 { 0%, 88.86% { opacity: 0; } 88.87%, 89.80% { opacity: 1; } 89.81%, 100% { opacity: 0; } }
-@keyframes k_c3_4 { 0%, 89.80% { opacity: 0; } 89.81%, 90.75% { opacity: 1; } 90.76%, 100% { opacity: 0; } }
-@keyframes k_c3_5 { 0%, 90.75% { opacity: 0; } 90.76%, 91.69% { opacity: 1; } 91.70%, 100% { opacity: 0; } }
-@keyframes k_c3_6 { 0%, 91.69% { opacity: 0; } 91.70%, 92.64% { opacity: 1; } 92.65%, 100% { opacity: 0; } }
-@keyframes k_c3_7 { 0%, 92.64% { opacity: 0; } 92.65%, 93.58% { opacity: 1; } 93.59%, 100% { opacity: 0; } }
-@keyframes k_c3_8 { 0%, 93.58% { opacity: 0; } 93.59%, 94.53% { opacity: 1; } 94.54%, 100% { opacity: 0; } }
-@keyframes k_c3_9 { 0%, 94.53% { opacity: 0; } 94.54%, 95.47% { opacity: 1; } 95.48%, 100% { opacity: 0; } }
-@keyframes k_c3_10 { 0%, 95.47% { opacity: 0; } 95.48%, 96.42% { opacity: 1; } 96.43%, 100% { opacity: 0; } }
-@keyframes k_c3_11 { 0%, 96.42% { opacity: 0; } 96.43%, 97.36% { opacity: 1; } 97.37%, 100% { opacity: 0; } }
-@keyframes k_c3_12 { 0%, 97.36% { opacity: 0; } 97.37%, 98.31% { opacity: 1; } 98.32%, 100% { opacity: 0; } }
-@keyframes k_c3_13 { 0%, 98.31% { opacity: 0; } 98.32%, 99.25% { opacity: 1; } 99.26%, 100% { opacity: 0; } }
-@keyframes k_perm3 { 0%, 99.25% { opacity: 0; } 99.26%, 100% { opacity: 1; } }
-@keyframes k_out3 { 0%, 99.25% { opacity: 0; } 99.26%, 100% { opacity: 1; } }
-@keyframes k_p4 { 0%, 99.25% { opacity: 0; } 99.26%, 100% { opacity: 1; } }
+      /* Fast Terminal Typing Keyframes (8.20s Choreography) */
+@keyframes k_p1_idle { 0%, 41.45% { opacity: 0; } 41.46%, 45.72% { opacity: 1; } 45.73%, 100% { opacity: 0; } }
+@keyframes k_c1_0 { 0%, 45.72% { opacity: 0; } 45.73%, 46.57% { opacity: 1; } 46.59%, 100% { opacity: 0; } }
+@keyframes k_c1_1 { 0%, 46.57% { opacity: 0; } 46.59%, 47.43% { opacity: 1; } 47.44%, 100% { opacity: 0; } }
+@keyframes k_c1_2 { 0%, 47.43% { opacity: 0; } 47.44%, 48.28% { opacity: 1; } 48.29%, 100% { opacity: 0; } }
+@keyframes k_c1_3 { 0%, 48.28% { opacity: 0; } 48.29%, 49.13% { opacity: 1; } 49.15%, 100% { opacity: 0; } }
+@keyframes k_c1_4 { 0%, 49.13% { opacity: 0; } 49.15%, 49.99% { opacity: 1; } 50.00%, 100% { opacity: 0; } }
+@keyframes k_c1_5 { 0%, 49.99% { opacity: 0; } 50.00%, 50.84% { opacity: 1; } 50.85%, 100% { opacity: 0; } }
+@keyframes k_c1_6 { 0%, 50.84% { opacity: 0; } 50.85%, 51.70% { opacity: 1; } 51.71%, 100% { opacity: 0; } }
+@keyframes k_c1_7 { 0%, 51.70% { opacity: 0; } 51.71%, 52.55% { opacity: 1; } 52.56%, 100% { opacity: 0; } }
+@keyframes k_c1_8 { 0%, 52.55% { opacity: 0; } 52.56%, 53.40% { opacity: 1; } 53.41%, 100% { opacity: 0; } }
+@keyframes k_c1_9 { 0%, 53.40% { opacity: 0; } 53.41%, 54.26% { opacity: 1; } 54.27%, 100% { opacity: 0; } }
+@keyframes k_c1_10 { 0%, 54.26% { opacity: 0; } 54.27%, 55.11% { opacity: 1; } 55.12%, 100% { opacity: 0; } }
+@keyframes k_c1_11 { 0%, 55.11% { opacity: 0; } 55.12%, 55.96% { opacity: 1; } 55.98%, 100% { opacity: 0; } }
+@keyframes k_c1_12 { 0%, 55.96% { opacity: 0; } 55.98%, 56.82% { opacity: 1; } 56.83%, 100% { opacity: 0; } }
+@keyframes k_c1_13 { 0%, 56.82% { opacity: 0; } 56.83%, 57.67% { opacity: 1; } 57.68%, 100% { opacity: 0; } }
+@keyframes k_perm1 { 0%, 57.67% { opacity: 0; } 57.68%, 100% { opacity: 1; } }
+@keyframes k_out1 { 0%, 57.67% { opacity: 0; } 57.68%, 100% { opacity: 1; } }
+@keyframes k_p2_idle { 0%, 57.67% { opacity: 0; } 57.68%, 66.21% { opacity: 1; } 66.22%, 100% { opacity: 0; } }
+@keyframes k_c2_0 { 0%, 66.21% { opacity: 0; } 66.22%, 67.06% { opacity: 1; } 67.07%, 100% { opacity: 0; } }
+@keyframes k_c2_1 { 0%, 67.06% { opacity: 0; } 67.07%, 67.91% { opacity: 1; } 67.93%, 100% { opacity: 0; } }
+@keyframes k_c2_2 { 0%, 67.91% { opacity: 0; } 67.93%, 68.77% { opacity: 1; } 68.78%, 100% { opacity: 0; } }
+@keyframes k_c2_3 { 0%, 68.77% { opacity: 0; } 68.78%, 69.62% { opacity: 1; } 69.63%, 100% { opacity: 0; } }
+@keyframes k_c2_4 { 0%, 69.62% { opacity: 0; } 69.63%, 70.48% { opacity: 1; } 70.49%, 100% { opacity: 0; } }
+@keyframes k_c2_5 { 0%, 70.48% { opacity: 0; } 70.49%, 71.33% { opacity: 1; } 71.34%, 100% { opacity: 0; } }
+@keyframes k_c2_6 { 0%, 71.33% { opacity: 0; } 71.34%, 72.18% { opacity: 1; } 72.20%, 100% { opacity: 0; } }
+@keyframes k_c2_7 { 0%, 72.18% { opacity: 0; } 72.20%, 73.04% { opacity: 1; } 73.05%, 100% { opacity: 0; } }
+@keyframes k_c2_8 { 0%, 73.04% { opacity: 0; } 73.05%, 73.89% { opacity: 1; } 73.90%, 100% { opacity: 0; } }
+@keyframes k_c2_9 { 0%, 73.89% { opacity: 0; } 73.90%, 74.74% { opacity: 1; } 74.76%, 100% { opacity: 0; } }
+@keyframes k_c2_10 { 0%, 74.74% { opacity: 0; } 74.76%, 75.60% { opacity: 1; } 75.61%, 100% { opacity: 0; } }
+@keyframes k_c2_11 { 0%, 75.60% { opacity: 0; } 75.61%, 76.45% { opacity: 1; } 76.46%, 100% { opacity: 0; } }
+@keyframes k_c2_12 { 0%, 76.45% { opacity: 0; } 76.46%, 77.30% { opacity: 1; } 77.32%, 100% { opacity: 0; } }
+@keyframes k_c2_13 { 0%, 77.30% { opacity: 0; } 77.32%, 78.16% { opacity: 1; } 78.17%, 100% { opacity: 0; } }
+@keyframes k_perm2 { 0%, 78.16% { opacity: 0; } 78.17%, 100% { opacity: 1; } }
+@keyframes k_out2 { 0%, 78.16% { opacity: 0; } 78.17%, 100% { opacity: 1; } }
+@keyframes k_p3_idle { 0%, 78.16% { opacity: 0; } 78.17%, 86.70% { opacity: 1; } 86.71%, 100% { opacity: 0; } }
+@keyframes k_c3_0 { 0%, 86.70% { opacity: 0; } 86.71%, 87.55% { opacity: 1; } 87.56%, 100% { opacity: 0; } }
+@keyframes k_c3_1 { 0%, 87.55% { opacity: 0; } 87.56%, 88.40% { opacity: 1; } 88.41%, 100% { opacity: 0; } }
+@keyframes k_c3_2 { 0%, 88.40% { opacity: 0; } 88.41%, 89.26% { opacity: 1; } 89.27%, 100% { opacity: 0; } }
+@keyframes k_c3_3 { 0%, 89.26% { opacity: 0; } 89.27%, 90.11% { opacity: 1; } 90.12%, 100% { opacity: 0; } }
+@keyframes k_c3_4 { 0%, 90.11% { opacity: 0; } 90.12%, 90.96% { opacity: 1; } 90.98%, 100% { opacity: 0; } }
+@keyframes k_c3_5 { 0%, 90.96% { opacity: 0; } 90.98%, 91.82% { opacity: 1; } 91.83%, 100% { opacity: 0; } }
+@keyframes k_c3_6 { 0%, 91.82% { opacity: 0; } 91.83%, 92.67% { opacity: 1; } 92.68%, 100% { opacity: 0; } }
+@keyframes k_c3_7 { 0%, 92.67% { opacity: 0; } 92.68%, 93.52% { opacity: 1; } 93.54%, 100% { opacity: 0; } }
+@keyframes k_c3_8 { 0%, 93.52% { opacity: 0; } 93.54%, 94.38% { opacity: 1; } 94.39%, 100% { opacity: 0; } }
+@keyframes k_c3_9 { 0%, 94.38% { opacity: 0; } 94.39%, 95.23% { opacity: 1; } 95.24%, 100% { opacity: 0; } }
+@keyframes k_c3_10 { 0%, 95.23% { opacity: 0; } 95.24%, 96.09% { opacity: 1; } 96.10%, 100% { opacity: 0; } }
+@keyframes k_c3_11 { 0%, 96.09% { opacity: 0; } 96.10%, 96.94% { opacity: 1; } 96.95%, 100% { opacity: 0; } }
+@keyframes k_c3_12 { 0%, 96.94% { opacity: 0; } 96.95%, 97.79% { opacity: 1; } 97.80%, 100% { opacity: 0; } }
+@keyframes k_c3_13 { 0%, 97.79% { opacity: 0; } 97.80%, 98.65% { opacity: 1; } 98.66%, 100% { opacity: 0; } }
+@keyframes k_perm3 { 0%, 98.65% { opacity: 0; } 98.66%, 100% { opacity: 1; } }
+@keyframes k_out3 { 0%, 98.65% { opacity: 0; } 98.66%, 100% { opacity: 1; } }
+@keyframes k_p4 { 0%, 98.65% { opacity: 0; } 98.66%, 100% { opacity: 1; } }
 
-.p1_idle { opacity: 0; animation: k_p1_idle 6.80s step-end 1 forwards; }
-.c1_0 { opacity: 0; animation: k_c1_0 6.80s step-end 1 forwards; }
-.c1_1 { opacity: 0; animation: k_c1_1 6.80s step-end 1 forwards; }
-.c1_2 { opacity: 0; animation: k_c1_2 6.80s step-end 1 forwards; }
-.c1_3 { opacity: 0; animation: k_c1_3 6.80s step-end 1 forwards; }
-.c1_4 { opacity: 0; animation: k_c1_4 6.80s step-end 1 forwards; }
-.c1_5 { opacity: 0; animation: k_c1_5 6.80s step-end 1 forwards; }
-.c1_6 { opacity: 0; animation: k_c1_6 6.80s step-end 1 forwards; }
-.c1_7 { opacity: 0; animation: k_c1_7 6.80s step-end 1 forwards; }
-.c1_8 { opacity: 0; animation: k_c1_8 6.80s step-end 1 forwards; }
-.c1_9 { opacity: 0; animation: k_c1_9 6.80s step-end 1 forwards; }
-.c1_10 { opacity: 0; animation: k_c1_10 6.80s step-end 1 forwards; }
-.c1_11 { opacity: 0; animation: k_c1_11 6.80s step-end 1 forwards; }
-.c1_12 { opacity: 0; animation: k_c1_12 6.80s step-end 1 forwards; }
-.c1_13 { opacity: 0; animation: k_c1_13 6.80s step-end 1 forwards; }
-.perm1 { opacity: 0; animation: k_perm1 6.80s step-end 1 forwards; }
-.out1 { opacity: 0; animation: k_out1 6.80s step-end 1 forwards; }
+      .p1_idle { opacity: 0; animation: k_p1_idle 8.20s step-end 1 forwards; }
+.c1_0 { opacity: 0; animation: k_c1_0 8.20s step-end 1 forwards; }
+.c1_1 { opacity: 0; animation: k_c1_1 8.20s step-end 1 forwards; }
+.c1_2 { opacity: 0; animation: k_c1_2 8.20s step-end 1 forwards; }
+.c1_3 { opacity: 0; animation: k_c1_3 8.20s step-end 1 forwards; }
+.c1_4 { opacity: 0; animation: k_c1_4 8.20s step-end 1 forwards; }
+.c1_5 { opacity: 0; animation: k_c1_5 8.20s step-end 1 forwards; }
+.c1_6 { opacity: 0; animation: k_c1_6 8.20s step-end 1 forwards; }
+.c1_7 { opacity: 0; animation: k_c1_7 8.20s step-end 1 forwards; }
+.c1_8 { opacity: 0; animation: k_c1_8 8.20s step-end 1 forwards; }
+.c1_9 { opacity: 0; animation: k_c1_9 8.20s step-end 1 forwards; }
+.c1_10 { opacity: 0; animation: k_c1_10 8.20s step-end 1 forwards; }
+.c1_11 { opacity: 0; animation: k_c1_11 8.20s step-end 1 forwards; }
+.c1_12 { opacity: 0; animation: k_c1_12 8.20s step-end 1 forwards; }
+.c1_13 { opacity: 0; animation: k_c1_13 8.20s step-end 1 forwards; }
+.perm1 { opacity: 0; animation: k_perm1 8.20s step-end 1 forwards; }
+.out1 { opacity: 0; animation: k_out1 8.20s step-end 1 forwards; }
 
-.p2_idle { opacity: 0; animation: k_p2_idle 6.80s step-end 1 forwards; }
-.c2_0 { opacity: 0; animation: k_c2_0 6.80s step-end 1 forwards; }
-.c2_1 { opacity: 0; animation: k_c2_1 6.80s step-end 1 forwards; }
-.c2_2 { opacity: 0; animation: k_c2_2 6.80s step-end 1 forwards; }
-.c2_3 { opacity: 0; animation: k_c2_3 6.80s step-end 1 forwards; }
-.c2_4 { opacity: 0; animation: k_c2_4 6.80s step-end 1 forwards; }
-.c2_5 { opacity: 0; animation: k_c2_5 6.80s step-end 1 forwards; }
-.c2_6 { opacity: 0; animation: k_c2_6 6.80s step-end 1 forwards; }
-.c2_7 { opacity: 0; animation: k_c2_7 6.80s step-end 1 forwards; }
-.c2_8 { opacity: 0; animation: k_c2_8 6.80s step-end 1 forwards; }
-.c2_9 { opacity: 0; animation: k_c2_9 6.80s step-end 1 forwards; }
-.c2_10 { opacity: 0; animation: k_c2_10 6.80s step-end 1 forwards; }
-.c2_11 { opacity: 0; animation: k_c2_11 6.80s step-end 1 forwards; }
-.c2_12 { opacity: 0; animation: k_c2_12 6.80s step-end 1 forwards; }
-.c2_13 { opacity: 0; animation: k_c2_13 6.80s step-end 1 forwards; }
-.perm2 { opacity: 0; animation: k_perm2 6.80s step-end 1 forwards; }
-.out2 { opacity: 0; animation: k_out2 6.80s step-end 1 forwards; }
+.p2_idle { opacity: 0; animation: k_p2_idle 8.20s step-end 1 forwards; }
+.c2_0 { opacity: 0; animation: k_c2_0 8.20s step-end 1 forwards; }
+.c2_1 { opacity: 0; animation: k_c2_1 8.20s step-end 1 forwards; }
+.c2_2 { opacity: 0; animation: k_c2_2 8.20s step-end 1 forwards; }
+.c2_3 { opacity: 0; animation: k_c2_3 8.20s step-end 1 forwards; }
+.c2_4 { opacity: 0; animation: k_c2_4 8.20s step-end 1 forwards; }
+.c2_5 { opacity: 0; animation: k_c2_5 8.20s step-end 1 forwards; }
+.c2_6 { opacity: 0; animation: k_c2_6 8.20s step-end 1 forwards; }
+.c2_7 { opacity: 0; animation: k_c2_7 8.20s step-end 1 forwards; }
+.c2_8 { opacity: 0; animation: k_c2_8 8.20s step-end 1 forwards; }
+.c2_9 { opacity: 0; animation: k_c2_9 8.20s step-end 1 forwards; }
+.c2_10 { opacity: 0; animation: k_c2_10 8.20s step-end 1 forwards; }
+.c2_11 { opacity: 0; animation: k_c2_11 8.20s step-end 1 forwards; }
+.c2_12 { opacity: 0; animation: k_c2_12 8.20s step-end 1 forwards; }
+.c2_13 { opacity: 0; animation: k_c2_13 8.20s step-end 1 forwards; }
+.perm2 { opacity: 0; animation: k_perm2 8.20s step-end 1 forwards; }
+.out2 { opacity: 0; animation: k_out2 8.20s step-end 1 forwards; }
 
-.p3_idle { opacity: 0; animation: k_p3_idle 6.80s step-end 1 forwards; }
-.c3_0 { opacity: 0; animation: k_c3_0 6.80s step-end 1 forwards; }
-.c3_1 { opacity: 0; animation: k_c3_1 6.80s step-end 1 forwards; }
-.c3_2 { opacity: 0; animation: k_c3_2 6.80s step-end 1 forwards; }
-.c3_3 { opacity: 0; animation: k_c3_3 6.80s step-end 1 forwards; }
-.c3_4 { opacity: 0; animation: k_c3_4 6.80s step-end 1 forwards; }
-.c3_5 { opacity: 0; animation: k_c3_5 6.80s step-end 1 forwards; }
-.c3_6 { opacity: 0; animation: k_c3_6 6.80s step-end 1 forwards; }
-.c3_7 { opacity: 0; animation: k_c3_7 6.80s step-end 1 forwards; }
-.c3_8 { opacity: 0; animation: k_c3_8 6.80s step-end 1 forwards; }
-.c3_9 { opacity: 0; animation: k_c3_9 6.80s step-end 1 forwards; }
-.c3_10 { opacity: 0; animation: k_c3_10 6.80s step-end 1 forwards; }
-.c3_11 { opacity: 0; animation: k_c3_11 6.80s step-end 1 forwards; }
-.c3_12 { opacity: 0; animation: k_c3_12 6.80s step-end 1 forwards; }
-.c3_13 { opacity: 0; animation: k_c3_13 6.80s step-end 1 forwards; }
-.perm3 { opacity: 0; animation: k_perm3 6.80s step-end 1 forwards; }
-.out3 { opacity: 0; animation: k_out3 6.80s step-end 1 forwards; }
+.p3_idle { opacity: 0; animation: k_p3_idle 8.20s step-end 1 forwards; }
+.c3_0 { opacity: 0; animation: k_c3_0 8.20s step-end 1 forwards; }
+.c3_1 { opacity: 0; animation: k_c3_1 8.20s step-end 1 forwards; }
+.c3_2 { opacity: 0; animation: k_c3_2 8.20s step-end 1 forwards; }
+.c3_3 { opacity: 0; animation: k_c3_3 8.20s step-end 1 forwards; }
+.c3_4 { opacity: 0; animation: k_c3_4 8.20s step-end 1 forwards; }
+.c3_5 { opacity: 0; animation: k_c3_5 8.20s step-end 1 forwards; }
+.c3_6 { opacity: 0; animation: k_c3_6 8.20s step-end 1 forwards; }
+.c3_7 { opacity: 0; animation: k_c3_7 8.20s step-end 1 forwards; }
+.c3_8 { opacity: 0; animation: k_c3_8 8.20s step-end 1 forwards; }
+.c3_9 { opacity: 0; animation: k_c3_9 8.20s step-end 1 forwards; }
+.c3_10 { opacity: 0; animation: k_c3_10 8.20s step-end 1 forwards; }
+.c3_11 { opacity: 0; animation: k_c3_11 8.20s step-end 1 forwards; }
+.c3_12 { opacity: 0; animation: k_c3_12 8.20s step-end 1 forwards; }
+.c3_13 { opacity: 0; animation: k_c3_13 8.20s step-end 1 forwards; }
+.perm3 { opacity: 0; animation: k_perm3 8.20s step-end 1 forwards; }
+.out3 { opacity: 0; animation: k_out3 8.20s step-end 1 forwards; }
 
-.p4_line { opacity: 0; animation: k_p4 6.80s step-end 1 forwards; }
+.p4_line { opacity: 0; animation: k_p4 8.20s step-end 1 forwards; }
     </style>
     <clipPath id="canvas-clip">
       <rect width="760" height="440" rx="8" />
@@ -221,7 +221,7 @@
     <line x1="32" y1="46" x2="728" y2="46" stroke="#2d333b" stroke-width="1" />
 
     <!-- Titlebar Title -->
-    <text x="48" y="37" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12px"><tspan fill="#c9d1d9" font-weight="bold">kitty</tspan><tspan fill="#8b949e"> &#8212; ~/.local/bin/profile.sh</tspan></text>
+    <text x="48" y="37" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13.5px"><tspan fill="#c9d1d9" font-weight="bold">kitty</tspan><tspan fill="#8b949e"> &#8212; ~/.local/bin/profile.sh</tspan></text>
 
     <!-- Retro Window Control Icons -->
     <g stroke="#8b949e" fill="none">
