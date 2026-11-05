@@ -4,7 +4,7 @@
       @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
       .cursor { animation: blink 1s step-end infinite; }
 
-      /* --- Step 1: Smooth Off-Screen Entry (0.0s - 3.40s) --- */
+      /* --- Step 1: Smooth Off-Screen Entry (0.0s - 2.80s) --- */
       @keyframes left_intro {
         0% { transform: translate(-420px, -12px); }
         100% { transform: translate(0px, 0px); }
@@ -12,7 +12,7 @@
       #left-hand-intro {
         will-change: transform;
         transform: translate(-420px, -12px);
-        animation: left_intro 3.40s cubic-bezier(0.16, 1, 0.3, 1) 0.0s 1 both;
+        animation: left_intro 2.80s cubic-bezier(0.16, 1, 0.3, 1) 0.0s 1 both;
       }
 
       @keyframes right_intro {
@@ -22,10 +22,10 @@
       #right-hand-intro {
         will-change: transform;
         transform: translate(420px, 12px);
-        animation: right_intro 3.40s cubic-bezier(0.16, 1, 0.3, 1) 0.0s 1 both;
+        animation: right_intro 2.80s cubic-bezier(0.16, 1, 0.3, 1) 0.0s 1 both;
       }
 
-      /* --- Step 2: Infinite Wallpaper Sway (Seamless Takeover at 3.40s) --- */
+      /* --- Step 2: Infinite Wallpaper Sway (Seamless Takeover at 2.80s) --- */
       @keyframes left_sway {
         0%, 100% { transform: translate(0px, 0px); }
         25% { transform: translate(8px, 10px); }
@@ -34,7 +34,7 @@
       }
       #left-hand-sway {
         will-change: transform;
-        animation: left_sway 8.0s ease-in-out 3.40s infinite both;
+        animation: left_sway 8.0s ease-in-out 2.80s infinite both;
       }
 
       @keyframes right_sway {
@@ -45,10 +45,10 @@
       }
       #right-hand-sway {
         will-change: transform;
-        animation: right_sway 8.0s ease-in-out 3.40s infinite both;
+        animation: right_sway 8.0s ease-in-out 2.80s infinite both;
       }
 
-      /* --- Step 3: Kitty Window Smooth Fade-In (2.40s - 3.40s) --- */
+      /* --- Step 3: Kitty Window Smooth Fade-In (Triggered by [xinit] at 2.80s - 3.40s) --- */
       @keyframes kitty_fade {
         0% { opacity: 0; }
         100% { opacity: 1; }
@@ -56,7 +56,7 @@
       #kitty-window {
         opacity: 0;
         will-change: opacity;
-        animation: kitty_fade 1.00s cubic-bezier(0.16, 1, 0.3, 1) 2.40s 1 forwards;
+        animation: kitty_fade 0.60s cubic-bezier(0.16, 1, 0.3, 1) 2.80s 1 forwards;
       }
 
       /* Large, High-Legibility Typography Rules */
